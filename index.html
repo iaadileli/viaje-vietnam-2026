@@ -6,6 +6,10 @@
 <title>Vietnam 2026 · 29 ago – 12 sep</title>
 <meta name="description" content="Guía del viaje a Vietnam del 30 de agosto al 12 de septiembre de 2026: itinerario día a día, mapa, dónde comer en cada ciudad, hoteles, cómo moverse y consejos.">
 <meta name="theme-color" content="#a8322d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icono-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Vietnam 2026">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vietnam 2026">
@@ -259,6 +263,18 @@
   .total .pp{font-size:.85rem;opacity:.92;font-family:-apple-system,'Segoe UI',sans-serif}
   .presu-nota{font-size:.9rem;color:var(--tinta2);font-style:italic;margin-top:6px}
 
+  .btn-guardar{display:inline-flex;align-items:center;gap:9px;background:#fff;color:#175a75;border:none;
+    border-radius:10px;padding:13px 22px;font-family:-apple-system,'Segoe UI',sans-serif;font-size:1rem;
+    font-weight:700;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+  .btn-guardar:hover{background:#eaf4f8}
+  .btn-guardar[disabled]{opacity:.65;cursor:default}
+  .btn-zip{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;
+    border:1.5px solid rgba(255,255,255,.6);border-radius:10px;padding:12px 20px;
+    font-family:-apple-system,'Segoe UI',sans-serif;font-size:.95rem;font-weight:600}
+  .btn-zip:hover{background:rgba(255,255,255,.14)}
+  .botonera{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:16px 0 6px}
+  .estado-offline{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.92rem;margin-top:10px;min-height:1.3em}
+
   img.fallo{display:none}
   figure.sinfoto{min-height:120px;display:flex;align-items:center;justify-content:center;
     background:linear-gradient(135deg,#f6e6c8,#e8d0a0);color:#8a6a20;font-family:sans-serif;font-size:.9rem}
@@ -300,6 +316,7 @@
     <a href="#moverse" onclick="cerrarMenuInfo()">🛵 Cómo moverse</a>
     <a href="#presupuesto" onclick="cerrarMenuInfo()">💰 Presupuesto</a>
     <a href="#practico" onclick="cerrarMenuInfo()">🧭 Guía práctica</a>
+    <a href="#offline" onclick="cerrarMenuInfo()">📥 Verla sin conexión</a>
   </div>
 </div></nav>
 
@@ -1336,6 +1353,28 @@
   </div>
 </section>
 
+<!-- ============ OFFLINE ============ -->
+<section id="offline" class="etapa-sec">
+  <div class="kicker">Para llevarla encima</div>
+  <h2>Verla sin conexión</h2>
+  <p class="intro">En Vietnam no siempre habrá datos —en las cuevas, en la bahía o en la carretera—, así que
+  la web se puede <strong>guardar entera en el móvil</strong>, fotos incluidas, y seguir funcionando en modo avión.</p>
+
+  <div class="destacado azul">
+    <h3>📥 Guardarla en el móvil</h3>
+    <p>Pulsa el botón y espera unos segundos: se descargan la página y las 56 fotos (unos 16 MB). A partir de
+    ahí, este enlace se abre sin conexión. En el menú del navegador podéis además usar
+    <strong>"Añadir a la pantalla de inicio"</strong> y quedará como una app.</p>
+    <div class="botonera">
+      <button id="btnGuardar" class="btn-guardar" onclick="guardarOffline()">📥 Guardar para usar sin conexión</button>
+      <a class="btn-zip" id="btnZip" href="viaje-vietnam-2026.zip">💾 Descargar en ZIP (ordenador)</a>
+    </div>
+    <div class="estado-offline" id="estadoOffline"></div>
+    <div class="ojo">🗺️ Lo único que necesita conexión es el mapa de Google incrustado. Para tenerlo también
+    sin datos: abridlo en la app de Google Maps y descargad la zona con "Descargar mapa sin conexión".</div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -1361,6 +1400,53 @@
     if(p.classList.contains('abierto') && !p.contains(e.target) && !b.contains(e.target)) cerrarMenuInfo();
   });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') cerrarMenuInfo(); });
+
+  // ---- Guardar la web para verla sin conexión ----
+  var elEstado = document.getElementById('estadoOffline');
+  var elBoton  = document.getElementById('btnGuardar');
+
+  function esWeb(){ return location.protocol === 'https:' || location.hostname === 'localhost'; }
+
+  if (!esWeb()) {
+    if (elBoton) elBoton.style.display = 'none';
+    var elZip = document.getElementById('btnZip');
+    if (elZip) elZip.style.display = 'none';
+    if (elEstado) elEstado.textContent = 'Esta es la copia descargada: ya funciona sin conexión.';
+  } else if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+    if (window.caches) {
+      caches.match('img/portada.jpg', {ignoreSearch:true}).then(function(hit){
+        if (hit && elEstado) {
+          elEstado.textContent = '✓ Ya está guardada en este dispositivo.';
+          if (elBoton) elBoton.textContent = '🔄 Volver a guardar (actualizar)';
+        }
+      }).catch(function(){});
+    }
+    navigator.serviceWorker.addEventListener('message', function(e){
+      if (!e.data || !elEstado) return;
+      if (e.data.tipo === 'PROGRESO') {
+        elEstado.textContent = 'Guardando… ' + e.data.hechos + ' de ' + e.data.total;
+      } else if (e.data.tipo === 'LISTO') {
+        elEstado.textContent = '✓ Guardada. Ya podéis abrirla en modo avión.';
+        if (elBoton) { elBoton.disabled = false; elBoton.textContent = '🔄 Volver a guardar (actualizar)'; }
+      }
+    });
+  } else {
+    if (elBoton) elBoton.style.display = 'none';
+    if (elEstado) elEstado.textContent = 'Este navegador no permite guardar la web; usad la descarga en ZIP.';
+  }
+
+  function guardarOffline(){
+    if (!('serviceWorker' in navigator)) return;
+    elBoton.disabled = true;
+    elEstado.textContent = 'Preparando la descarga…';
+    navigator.serviceWorker.ready.then(function(reg){
+      var sw = reg.active || navigator.serviceWorker.controller;
+      if (sw) { sw.postMessage({tipo:'GUARDAR'}); }
+      else { elEstado.textContent = 'Recargad la página e intentadlo otra vez.'; elBoton.disabled = false; }
+    });
+  }
+
 </script>
 
 </body>
