@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vietnam 2026 · 29 ago – 12 sep</title>
+<style>
+  :root{
+    --crema:#faf7f2; --tinta:#241f1c; --tinta2:#6b5f57;
+    --laca:#a8322d; --oro:#c8891a; --oro-suave:#f6e6c8;
+    --jade:#2f6b4f; --bahia:#1f6e8c; --linea:#e9e0d3;
+    --card:#ffffff; --sombra:0 2px 14px rgba(60,40,25,.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--crema);color:var(--tinta);line-height:1.65}
+  .sans{font-family:-apple-system,'Segoe UI',Roboto,Ubuntu,sans-serif}
+
+  /* ---------- HERO ---------- */
+  header.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(20,10,5,.28),rgba(20,10,5,.7)),url('img/hoian-farolillos.jpg') center/cover no-repeat;color:#fff}
+  .hero-inner{max-width:1050px;margin:0 auto;padding:60px 24px 48px;width:100%}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:normal;letter-spacing:.5px;text-shadow:0 2px 12px rgba(0,0,0,.55)}
+  .hero .fechas{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1.02rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.95;margin-top:10px}
+  .hero .sub{margin-top:14px;font-style:italic;font-size:1.15rem;max-width:660px;opacity:.95}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--linea)}
+  .nav-inner{position:relative;max-width:1050px;margin:0 auto;display:flex;align-items:center;padding:0 16px 0 24px}
+  nav .wrap{flex:1 1 auto;min-width:0;display:flex;gap:4px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  nav a{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.85rem;color:var(--tinta2);
+    text-decoration:none;padding:12px 10px;border-bottom:3px solid transparent}
+  nav a:hover{color:var(--laca);border-bottom-color:var(--laca)}
+  .menu-btn{flex:0 0 auto;margin-left:12px;z-index:52;background:var(--laca);color:#fff;border:none;
+    border-radius:9px;padding:8px 13px;font-size:.95rem;cursor:pointer;display:inline-flex;align-items:center;
+    gap:8px;box-shadow:0 2px 8px rgba(60,40,25,.2);font-family:-apple-system,'Segoe UI',sans-serif;font-weight:600}
+  .menu-btn:hover{background:#8a2622}
+  .menu-btn .bars{font-size:1.05rem;line-height:1}
+  .menu-panel{position:absolute;right:16px;top:50px;z-index:51;background:var(--card);border:1px solid var(--linea);
+    border-radius:12px;box-shadow:0 10px 28px rgba(60,40,25,.22);padding:8px;min-width:215px;
+    display:none;flex-direction:column}
+  .menu-panel.abierto{display:flex}
+  .menu-panel .cab{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--oro);padding:6px 14px 6px}
+  .menu-panel a{padding:11px 14px;border-radius:8px;color:var(--tinta);text-decoration:none;font-size:.95rem;
+    border-bottom:none;display:flex;align-items:center;gap:10px}
+  .menu-panel a:hover{background:var(--oro-suave);color:var(--laca);border-bottom:none}
+
+  main{max-width:1050px;margin:0 auto;padding:0 24px}
+
+  /* ---------- RESUMEN / TIMELINE ---------- */
+  .resumen{padding:56px 0 20px}
+  h2{font-size:2rem;font-weight:normal;color:var(--laca);margin-bottom:6px}
+  .kicker{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.78rem;letter-spacing:3px;
+    text-transform:uppercase;color:var(--oro);margin-bottom:8px}
+  .timeline{margin:30px 0 10px;border-left:3px solid var(--oro-suave);padding-left:0;list-style:none}
+  .timeline li{position:relative;padding:10px 0 10px 28px}
+  .timeline li::before{content:'';position:absolute;left:-8.5px;top:20px;width:14px;height:14px;
+    border-radius:50%;background:var(--oro);border:3px solid var(--crema)}
+  .timeline .etapa{font-family:-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:1.05rem}
+  .timeline .det{color:var(--tinta2);font-size:.95rem}
+  .timeline .tr{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.82rem;color:var(--bahia);
+    padding:2px 0 2px 28px;font-style:normal}
+  .timeline li.tr-li{padding:2px 0 2px 28px}
+  .timeline li.tr-li::before{content:'✈';background:none;border:none;left:-10px;top:4px;font-size:.85rem;color:var(--bahia)}
+  .timeline li.tr-li.coche::before{content:'🚗'}
+  .timeline li.tr-li.barco::before{content:'⛵'}
+  .timeline li.tr-li.tren::before{content:'🚆'}
+
+  .claves{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:34px 0}
+  .clave{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:18px;box-shadow:var(--sombra)}
+  .clave .n{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1.5rem;font-weight:700;color:var(--laca)}
+  .clave .t{font-size:.9rem;color:var(--tinta2)}
+
+  /* ---------- VUELOS ---------- */
+  .vuelos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:10px 0 8px}
+  .vuelo{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--bahia);
+    border-radius:12px;padding:16px 18px;box-shadow:var(--sombra);font-family:-apple-system,'Segoe UI',sans-serif}
+  .vuelo .f{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:var(--oro)}
+  .vuelo .r{font-size:1.12rem;font-weight:700;margin:4px 0 2px}
+  .vuelo .h{font-size:.92rem;color:var(--tinta2)}
+
+  /* ---------- MAPA ---------- */
+  .mapa-embed{border-radius:16px;overflow:hidden;border:1px solid var(--linea);box-shadow:var(--sombra);margin:22px 0 10px;background:#eef4f2}
+  .mapa-embed iframe{width:100%;height:520px;border:0;display:block}
+  .mapa-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:26px;align-items:start;margin:24px 0 10px}
+  .mapa-svg svg{width:100%;height:auto;max-width:430px;display:block;margin:0 auto;
+    background:#eef4f2;border-radius:16px;border:1px solid var(--linea)}
+  .leyenda{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:20px 22px;box-shadow:var(--sombra)}
+  .leyenda h4{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.95rem;color:var(--laca);margin-bottom:12px}
+  .leyenda .lg{display:flex;align-items:flex-start;gap:10px;font-family:-apple-system,'Segoe UI',sans-serif;
+    font-size:.88rem;margin-bottom:11px;color:#3d362c}
+  .leyenda .lg .ic{font-size:1.05rem;line-height:1.3}
+  .leyenda .vuelos{margin-top:14px;padding-top:14px;border-top:1px dashed var(--linea);
+    font-family:-apple-system,'Segoe UI',sans-serif;font-size:.82rem;color:var(--tinta2)}
+  .leyenda .vuelos b{color:var(--bahia)}
+  .btn-mapa{display:inline-flex;align-items:center;gap:8px;background:var(--jade);color:#fff;text-decoration:none;
+    font-family:-apple-system,'Segoe UI',sans-serif;font-size:.9rem;font-weight:600;border-radius:9px;
+    padding:10px 16px;margin:6px 0 4px;box-shadow:var(--sombra)}
+  .btn-mapa:hover{background:#24543e}
+  @media(max-width:760px){.mapa-wrap{grid-template-columns:1fr}.mapa-embed iframe{height:400px}}
+
+  /* ---------- ETAPAS ---------- */
+  section.etapa-sec{padding:44px 0 18px;border-top:1px solid var(--linea)}
+  .banner{position:relative;border-radius:16px;overflow:hidden;margin:20px 0 26px;box-shadow:var(--sombra)}
+  .banner img{width:100%;height:340px;object-fit:cover;display:block}
+  .banner .pie{position:absolute;bottom:0;left:0;right:0;padding:30px 22px 14px;
+    background:linear-gradient(transparent,rgba(20,10,2,.75));color:#fff;
+    font-family:-apple-system,'Segoe UI',sans-serif;font-size:.85rem}
+  .fechas-chip{display:inline-block;font-family:-apple-system,'Segoe UI',sans-serif;font-size:.82rem;
+    background:var(--oro-suave);color:var(--laca);border-radius:999px;padding:4px 14px;
+    letter-spacing:.5px;margin:4px 0 12px;font-weight:600}
+  .intro{font-size:1.08rem;max-width:770px;margin-bottom:22px}
+
+  .dias{display:grid;gap:14px;margin:10px 0 24px}
+  .dia{background:var(--card);border:1px solid var(--linea);border-left:5px solid var(--oro);
+    border-radius:12px;padding:18px 20px;box-shadow:var(--sombra)}
+  .dia h4{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.95rem;color:var(--laca);margin-bottom:6px}
+  .dia h4 .fecha{color:var(--oro);font-weight:400;margin-left:6px;font-size:.85rem}
+  .dia p{font-size:.98rem;color:#3d362c;margin-bottom:6px}
+  .dia .bloque{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.78rem;letter-spacing:1px;
+    text-transform:uppercase;color:var(--bahia);font-weight:700}
+  .dia .tip{margin-top:8px;font-size:.88rem;color:var(--jade);font-style:italic}
+
+  .imprescindibles{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:20px 24px;margin:6px 0 24px;box-shadow:var(--sombra)}
+  .imprescindibles h3{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1rem;color:var(--laca);
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .imprescindibles h3::before{content:'📍 '}
+  .imprescindibles ul{margin-left:20px;font-size:.95rem;color:#3d362c}
+  .imprescindibles li{margin-bottom:7px}
+  .imprescindibles li b{color:var(--tinta)}
+
+  .comer{background:#fdf7ec;border:1px solid #ecdcb8;border-radius:14px;padding:22px 24px;margin:6px 0 26px}
+  .comer h3{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1rem;color:var(--laca);
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .comer h3::before{content:'🍜 '}
+  .comer-fotos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 16px}
+  .comer-fotos figure{border-radius:10px;overflow:hidden;box-shadow:var(--sombra);background:#eee}
+  .comer-fotos img{width:100%;height:130px;object-fit:cover;display:block}
+  .comer-fotos figcaption{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.72rem;
+    color:var(--tinta2);padding:6px 9px;background:#fff;text-align:center}
+  .platos{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .plato{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.85rem;background:#fff;
+    border:1px solid #e5d3a8;border-radius:999px;padding:5px 13px;color:#7a5a10}
+  .comer p{font-size:.93rem;color:var(--tinta2)}
+  .sitios{list-style:none;margin:6px 0 12px}
+  .sitios li{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.9rem;color:#3d362c;
+    padding:9px 0 9px 0;border-top:1px dashed #e5d3a8}
+  .sitios li:first-child{border-top:none}
+  .sitios .nombre{font-weight:700;color:var(--laca)}
+  .sitios .dir{color:var(--tinta2);font-size:.83rem}
+  .sitios a{color:var(--bahia);text-decoration:none;border-bottom:1px dotted var(--bahia);font-size:.83rem}
+  .sitios a:hover{color:var(--laca);border-bottom-color:var(--laca)}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 24px}
+  .duo figure{border-radius:12px;overflow:hidden;box-shadow:var(--sombra);background:#eee}
+  .duo img{width:100%;height:230px;object-fit:cover;display:block}
+  .duo figcaption{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.8rem;color:var(--tinta2);
+    padding:8px 12px;background:var(--card)}
+  .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:8px 0 24px}
+  .trio figure{border-radius:12px;overflow:hidden;box-shadow:var(--sombra);background:#eee}
+  .trio img{width:100%;height:180px;object-fit:cover;display:block}
+  .trio figcaption{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.78rem;color:var(--tinta2);
+    padding:8px 11px;background:var(--card)}
+  @media(max-width:640px){.duo,.trio{grid-template-columns:1fr}.banner img{height:230px}}
+
+  /* ---------- DESTACADOS ---------- */
+  .destacado{background:linear-gradient(135deg,#2b5f46,#3d7a5b);color:#f3efe4;border-radius:18px;
+    padding:34px 30px;margin:30px 0;box-shadow:var(--sombra)}
+  .destacado.rojo{background:linear-gradient(135deg,#8a2622,#b3413a)}
+  .destacado.azul{background:linear-gradient(135deg,#175a75,#2a86a8)}
+  .destacado h3{font-size:1.6rem;font-weight:normal;margin-bottom:12px}
+  .destacado p{margin-bottom:12px;font-size:1rem}
+  .destacado ul{margin:10px 0 10px 22px;font-size:.97rem}
+  .destacado li{margin-bottom:6px}
+  .destacado .ojo{background:rgba(255,255,255,.13);border-radius:10px;padding:12px 16px;
+    font-size:.9rem;font-family:-apple-system,'Segoe UI',sans-serif;margin-top:14px}
+
+  /* ---------- TABLAS ---------- */
+  .tabla-wrap{overflow-x:auto;margin:22px 0 8px;border:1px solid var(--linea);border-radius:14px;box-shadow:var(--sombra);-webkit-overflow-scrolling:touch}
+  table.tab{border-collapse:collapse;width:100%;min-width:720px;background:var(--card);
+    font-family:-apple-system,'Segoe UI',sans-serif;font-size:.9rem}
+  table.tab thead th{background:var(--laca);color:#fff;text-align:left;padding:12px 14px;
+    font-size:.78rem;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap}
+  table.tab td{padding:11px 14px;border-top:1px solid var(--linea);vertical-align:top;color:#3d362c}
+  table.tab tr.grupo td{background:var(--oro-suave);color:var(--laca);font-weight:700;font-size:.86rem}
+  table.tab td b{color:var(--tinta)}
+  table.hoteles{min-width:860px}
+  table.tab a.hotel{display:inline-block;color:var(--bahia);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--bahia)}
+  table.tab a.hotel:hover{color:var(--laca);border-bottom-color:var(--laca)}
+  table.tab a.booking{display:inline-flex;align-items:center;gap:4px;margin-top:7px;font-size:.74rem;
+    color:#0a53c4;text-decoration:none;background:#eaf1fc;border:1px solid #cfe0f7;border-radius:7px;
+    padding:3px 9px;font-weight:600;white-space:nowrap}
+  table.tab a.booking:hover{background:#d9e6fb;border-color:#a9c8f0}
+  .zona-cell{color:var(--tinta2);font-size:.85rem;white-space:normal;max-width:150px}
+  .gama-cell{white-space:nowrap;color:var(--tinta2);font-size:.85rem}
+  .precio-cell{white-space:nowrap;font-weight:700;color:var(--tinta)}
+  .estrellas{color:var(--oro);white-space:nowrap;font-size:1rem;letter-spacing:1px}
+  .estrellas .vacia{color:#dccfb5}
+  .porque-cell{max-width:280px;font-size:.85rem}
+  .chars{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .char{font-size:.72rem;background:#f3ede0;border:1px solid #e7dcc3;border-radius:999px;
+    padding:2px 8px;color:#6b5f4f;white-space:nowrap}
+  .reservado{display:inline-block;font-size:.7rem;background:#e4f2e8;border:1px solid #b9ddc7;color:#2f6b4f;
+    border-radius:999px;padding:2px 9px;font-weight:700;margin-bottom:5px}
+  .leyenda-hoteles{background:#fdf7ec;border:1px solid #ecdcb8;border-radius:12px;padding:16px 20px;
+    margin:6px 0 16px;font-size:.88rem;color:#5c4a22}
+  .leyenda-hoteles .leg-chars{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .leyenda-hoteles .lc{font-size:.78rem;background:#fff;border:1px solid #e7dcc3;border-radius:999px;padding:3px 10px;color:#6b5f4f}
+
+  /* ---------- BARRIOS / PRÁCTICO ---------- */
+  .barrios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0}
+  .bcard{background:var(--card);border:1px solid var(--linea);border-top:4px solid var(--laca);
+    border-radius:12px;padding:20px;box-shadow:var(--sombra)}
+  .bcard h4{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1.05rem;color:var(--laca);margin-bottom:8px}
+  .bcard .barrio{font-family:-apple-system,'Segoe UI',sans-serif;font-weight:700;color:var(--oro);
+    font-size:.95rem;margin-bottom:8px}
+  .bcard p{font-size:.93rem;color:#3d362c}
+  .practico{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin:24px 0 40px}
+  .pcard{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:22px;box-shadow:var(--sombra)}
+  .pcard h4{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.95rem;color:var(--laca);margin-bottom:10px}
+  .pcard ul{margin-left:18px;font-size:.92rem;color:#3d362c}
+  .pcard li{margin-bottom:7px}
+
+  /* ---------- PRESUPUESTO ---------- */
+  .presu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:24px 0 18px}
+  .pline{background:var(--card);border:1px solid var(--linea);border-radius:12px;padding:16px 18px;box-shadow:var(--sombra)}
+  .pline .cat{font-family:-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:.95rem;color:var(--laca);margin-bottom:4px}
+  .pline .cat .ic{margin-right:6px}
+  .pline .imp{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1.25rem;font-weight:700;color:var(--tinta)}
+  .pline .nota{font-size:.85rem;color:var(--tinta2);margin-top:4px}
+  .totales{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:8px 0 18px}
+  .total{border-radius:14px;padding:22px;color:#fff;box-shadow:var(--sombra)}
+  .total.t1{background:linear-gradient(135deg,#4f8c6c,#2f6b4f)}
+  .total.t2{background:linear-gradient(135deg,#d69a2e,#c8891a)}
+  .total.t3{background:linear-gradient(135deg,#b3413a,#8a2622)}
+  .total .lbl{font-family:-apple-system,'Segoe UI',sans-serif;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;opacity:.92}
+  .total .val{font-family:-apple-system,'Segoe UI',sans-serif;font-size:1.9rem;font-weight:700;margin:6px 0 2px}
+  .total .pp{font-size:.85rem;opacity:.92;font-family:-apple-system,'Segoe UI',sans-serif}
+  .presu-nota{font-size:.9rem;color:var(--tinta2);font-style:italic;margin-top:6px}
+
+  img.fallo{display:none}
+  figure.sinfoto{min-height:120px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#f6e6c8,#e8d0a0);color:#8a6a20;font-family:sans-serif;font-size:.9rem}
+
+  footer{border-top:1px solid var(--linea);padding:30px 24px 50px;text-align:center;
+    color:var(--tinta2);font-size:.85rem;font-style:italic}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="fechas">Salida de Madrid el 29 ago · en Vietnam del 30 ago al 12 sep de 2026 · 13 noches</div>
+    <h1>Vietnam de norte a centro</h1>
+    <p class="sub">Hanói, Hoi An, Hue, las cuevas de Phong Nha, los arrozales de Ninh Binh y un
+    crucero por la bahía de Lan Ha. Farolillos, pho a las siete de la mañana y karst hasta el horizonte.</p>
+  </div>
+</header>
+
+<nav class="sans"><div class="nav-inner"><div class="wrap">
+  <a href="#ruta">La ruta</a>
+  <a href="#mapa">Mapa</a>
+  <a href="#hanoi">Hanói</a>
+  <a href="#hoian">Hoi An</a>
+  <a href="#hue">Hue</a>
+  <a href="#phongnha">Phong Nha</a>
+  <a href="#ninhbinh">Ninh Binh</a>
+  <a href="#lanha">Lan Ha Bay</a>
+  <a href="#hanoi2">Hanói final</a>
+</div>
+  <button id="menuBtn" class="menu-btn" onclick="toggleMenuInfo(event)" aria-label="Menú de información práctica" aria-expanded="false">
+    <span class="bars">☰</span><span>Info</span>
+  </button>
+  <div class="menu-panel" id="menuInfo">
+    <div class="cab">Info práctica</div>
+    <a href="#comer" onclick="cerrarMenuInfo()">🍜 Guía de comida</a>
+    <a href="#hoteles" onclick="cerrarMenuInfo()">★ Hoteles</a>
+    <a href="#moverse" onclick="cerrarMenuInfo()">🛵 Cómo moverse</a>
+    <a href="#presupuesto" onclick="cerrarMenuInfo()">💰 Presupuesto</a>
+    <a href="#practico" onclick="cerrarMenuInfo()">🧭 Guía práctica</a>
+  </div>
+</div></nav>
+
+<main>
+
+<!-- ============ RUTA ============ -->
+<section id="ruta" class="resumen">
+  <div class="kicker">Visión general</div>
+  <h2>La ruta, de un vistazo</h2>
+  <p class="intro">Catorce días de norte a centro y vuelta al norte, con <strong>un solo vuelo interno</strong>
+  (Hanói → Da Nang) y todo lo demás por carretera, tren o barco. La lógica del viaje: llegar y aclimatarse en
+  Hanói, bajar al centro para la parte bonita y tranquila (Hoi An, Hue, Phong Nha), volver por los arrozales
+  de Ninh Binh y rematar con dos días de bahía y despedida en Hanói.</p>
+
+  <ul class="timeline">
+    <li class="tr-li"><span class="tr">Vuelo Madrid → Hanói · sáb 29 ago, 09:05 → dom 30 ago, 07:15 (~13–14 h)</span></li>
+    <li><span class="etapa">Hanói</span><br><span class="det">dom 30 → lun 31 ago · 1 noche — lago Hoan Kiem, Old Quarter y primer choque con el tráfico</span></li>
+    <li class="tr-li"><span class="tr">Vuelo Hanói → Da Nang · lun 31 ago, 19:10 → 20:35 (~1 h 25) + coche a Hoi An</span></li>
+    <li><span class="etapa">Hoi An</span><br><span class="det">lun 31 ago → jue 3 sep · 3 noches — casco antiguo, farolillos, sastres y playa</span></li>
+    <li class="tr-li coche"><span class="tr">Coche privado por el Paso de Hai Van (con Marble Mountains y Lang Co)</span></li>
+    <li><span class="etapa">Hue</span><br><span class="det">jue 3 → vie 4 sep · 1 noche — Ciudad Imperial, tumbas de los emperadores y río Perfume</span></li>
+    <li class="tr-li coche"><span class="tr">Coche o tren Hue → Phong Nha (~4 h / ~3 h a Dong Hoi)</span></li>
+    <li><span class="etapa">Phong Nha</span><br><span class="det">vie 4 → dom 6 sep · 2 noches — las cuevas más espectaculares del planeta, en un valle rural</span></li>
+    <li class="tr-li tren"><span class="tr">Traslado a Ninh Binh: tren nocturno/diurno o vuelo Dong Hoi → Hanói + coche</span></li>
+    <li><span class="etapa">Tam Coc / Ninh Binh</span><br><span class="det">dom 6 → mar 8 sep · 2 noches — la "bahía de Ha Long terrestre": barcas, arrozales y miradores</span></li>
+    <li class="tr-li coche"><span class="tr">Coche Ninh Binh → Hanói (~1 h 45)</span></li>
+    <li><span class="etapa">Hanói</span><br><span class="det">mar 8 → mié 9 sep · 1 noche — noche puente antes del crucero</span></li>
+    <li class="tr-li barco"><span class="tr">Traslado al puerto y embarque · crucero de una noche</span></li>
+    <li><span class="etapa">Crucero Lan Ha Bay</span><br><span class="det">mié 9 → jue 10 sep · 1 noche a bordo — kayak, cuevas y karst sin las multitudes de Ha Long</span></li>
+    <li><span class="etapa">Hanói</span><br><span class="det">jue 10 → sáb 12 sep · 2 noches — compras, cafés, French Quarter y despedida</span></li>
+    <li class="tr-li"><span class="tr">Vuelo Hanói → Madrid · sáb 12 sep, 08:45 → 20:45 (~13–14 h)</span></li>
+  </ul>
+
+  <div class="claves sans">
+    <div class="clave"><div class="n">6</div><div class="t">bases distintas: Hanói, Hoi An, Hue, Phong Nha, Tam Coc y el barco</div></div>
+    <div class="clave"><div class="n">1</div><div class="t">vuelo interno, de noche y sin madrugar</div></div>
+    <div class="clave"><div class="n">4</div><div class="t">noches en Hanói repartidas en tres momentos</div></div>
+    <div class="clave"><div class="n">2</div><div class="t">patrimonios de la Unesco cada dos días: Hoi An, Hue, Phong Nha, Trang An, Ha Long</div></div>
+  </div>
+
+  <div class="kicker" style="margin-top:34px">Los vuelos ya cerrados</div>
+  <div class="vuelos-grid">
+    <div class="vuelo"><div class="f">Sáb 29 ago · internacional</div><div class="r">Madrid → Hanói</div>
+      <div class="h">09:05 MAD → 07:15+1 HAN · ~13–14 h</div></div>
+    <div class="vuelo"><div class="f">Lun 31 ago · interno</div><div class="r">Hanói → Da Nang</div>
+      <div class="h">19:10 HAN → 20:35 DAD · ~1 h 25 · después, 45 min en coche a Hoi An</div></div>
+    <div class="vuelo"><div class="f">Sáb 12 sep · internacional</div><div class="r">Hanói → Madrid</div>
+      <div class="h">08:45 HAN → 20:45 MAD · ~13–14 h · salir del hotel sobre las 06:00</div></div>
+  </div>
+</section>
+
+<!-- ============ MAPA ============ -->
+<section id="mapa" class="etapa-sec">
+  <div class="kicker">El recorrido</div>
+  <h2>El mapa del viaje</h2>
+  <p class="intro">El mapa de Google con <strong>todas las rutas día a día</strong> —hoteles, monumentos y
+  traslados—, listo para abrir desde el móvil sobre el terreno. Debajo, el esquema del país: se baja al
+  centro en avión y se vuelve subiendo por tierra.</p>
+
+  <a class="btn-mapa" href="https://www.google.com/maps/d/edit?mid=1BTI5p2moRzdtEeMoFS_BvWzBKD98B1g&usp=sharing" target="_blank" rel="noopener">🗺️ Abrir el mapa completo en Google My Maps</a>
+
+  <div class="mapa-embed">
+    <iframe src="https://www.google.com/maps/d/embed?mid=1BTI5p2moRzdtEeMoFS_BvWzBKD98B1g" title="Mapa del viaje a Vietnam 2026" loading="lazy"></iframe>
+  </div>
+  <p class="presu-nota">Si el mapa aparece en blanco, es que aún no está compartido en modo público:
+  en My Maps → Compartir → "Cualquier persona con el enlace". Mientras tanto, el botón de arriba lo abre igual.</p>
+
+  <div class="mapa-wrap">
+    <div class="mapa-svg">
+      <svg viewBox="0 0 430 700" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,sans-serif" role="img" aria-label="Mapa esquemático de la ruta por Vietnam">
+        <rect x="0" y="0" width="430" height="700" fill="#eef4f2"/>
+        <path d="M 120 40 L 165 48 L 200 70 L 235 62 L 250 85 L 243 115 L 262 140 L 268 175
+          L 258 205 L 272 235 L 285 268 L 300 300 L 312 335 L 322 372 L 330 410 L 333 450
+          L 322 486 L 300 512 L 268 528 L 232 530 L 205 515 L 190 490 L 196 462 L 214 448
+          L 236 452 L 250 470 L 262 452 L 258 420 L 244 386 L 228 352 L 210 318 L 192 285
+          L 174 252 L 158 220 L 140 190 L 120 165 L 96 140 L 78 112 L 82 80 L 98 55 Z"
+          fill="#dbe8dc" stroke="#a9c3ac" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <text x="243" y="98" fill="#bcac8c" font-size="13" font-weight="700" letter-spacing="3">NORTE</text>
+        <text x="300" y="330" fill="#bcac8c" font-size="13" font-weight="700" letter-spacing="3">CENTRO</text>
+
+        <g fill="none" stroke-linecap="round">
+          <!-- vuelo Hanoi -> Da Nang -->
+          <path d="M 150 120 Q 260 210 232 330" stroke="#1f6e8c" stroke-width="2.4" stroke-dasharray="1 7"/>
+          <!-- Hoi An -> Hue -->
+          <path d="M 232 330 L 214 288" stroke="#a8322d" stroke-width="2.6"/>
+          <!-- Hue -> Phong Nha -->
+          <path d="M 214 288 L 196 232" stroke="#a8322d" stroke-width="2.6"/>
+          <!-- Phong Nha -> Ninh Binh -->
+          <path d="M 196 232 Q 150 190 160 156" stroke="#6b5f57" stroke-width="2.4" stroke-dasharray="6 5"/>
+          <!-- Ninh Binh -> Hanoi -->
+          <path d="M 160 156 L 150 120" stroke="#a8322d" stroke-width="2.6"/>
+          <!-- Hanoi -> Lan Ha -->
+          <path d="M 150 120 L 205 128" stroke="#2f6b4f" stroke-width="2.6" stroke-dasharray="0.5 5"/>
+        </g>
+
+        <g font-size="14" text-anchor="middle">
+          <text x="215" y="235">✈️</text>
+        </g>
+
+        <g font-weight="700">
+          <circle cx="150" cy="120" r="13" fill="#a8322d" stroke="#fff" stroke-width="2.5"/>
+          <text x="150" y="124.5" fill="#fff" text-anchor="middle" font-size="10">1·6·8</text>
+          <text x="60" y="105" fill="#241f1c" font-size="13.5">Hanói</text>
+          <text x="42" y="119" fill="#6b5f57" font-size="10.5" font-weight="400">1 + 1 + 2 noches</text>
+
+          <circle cx="205" cy="128" r="12" fill="#2f6b4f" stroke="#fff" stroke-width="2.5"/>
+          <text x="205" y="132.5" fill="#fff" text-anchor="middle" font-size="12">7</text>
+          <text x="222" y="126" fill="#241f1c" font-size="13">Lan Ha Bay</text>
+          <text x="222" y="140" fill="#6b5f57" font-size="10.5" font-weight="400">crucero · 1 noche</text>
+
+          <circle cx="160" cy="156" r="12" fill="#c8891a" stroke="#fff" stroke-width="2.5"/>
+          <text x="160" y="160.5" fill="#fff" text-anchor="middle" font-size="12">5</text>
+          <text x="178" y="162" fill="#241f1c" font-size="13">Tam Coc · Ninh Binh</text>
+          <text x="178" y="176" fill="#6b5f57" font-size="10.5" font-weight="400">2 noches</text>
+
+          <circle cx="196" cy="232" r="12" fill="#c8891a" stroke="#fff" stroke-width="2.5"/>
+          <text x="196" y="236.5" fill="#fff" text-anchor="middle" font-size="12">4</text>
+          <text x="30" y="238" fill="#241f1c" font-size="13">Phong Nha</text>
+          <text x="30" y="252" fill="#6b5f57" font-size="10.5" font-weight="400">2 noches · cuevas</text>
+          <line x1="104" y1="234" x2="184" y2="233" stroke="#c9bda6" stroke-width="1"/>
+
+          <circle cx="214" cy="288" r="12" fill="#c8891a" stroke="#fff" stroke-width="2.5"/>
+          <text x="214" y="292.5" fill="#fff" text-anchor="middle" font-size="12">3</text>
+          <text x="232" y="292" fill="#241f1c" font-size="13">Hue</text>
+          <text x="232" y="306" fill="#6b5f57" font-size="10.5" font-weight="400">1 noche</text>
+
+          <circle cx="232" cy="330" r="13" fill="#a8322d" stroke="#fff" stroke-width="2.5"/>
+          <text x="232" y="334.5" fill="#fff" text-anchor="middle" font-size="12">2</text>
+          <text x="250" y="334" fill="#241f1c" font-size="13.5">Hoi An</text>
+          <text x="250" y="348" fill="#6b5f57" font-size="10.5" font-weight="400">3 noches · Da Nang</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="leyenda">
+      <h4>Cómo se mueve uno</h4>
+      <div class="lg"><span class="ic">✈️</span><span><b>Vuelo interno</b> (azul discontinuo) — el único salto largo: Hanói → Da Nang, la noche del 31.</span></div>
+      <div class="lg"><span class="ic">🚗</span><span><b>Coche privado</b> (línea roja) — Hoi An → Hue por el Paso de Hai Van, Hue → Phong Nha y Ninh Binh → Hanói.</span></div>
+      <div class="lg"><span class="ic">🚆</span><span><b>Tren o vuelo + coche</b> (gris discontinuo) — el traslado de Phong Nha a Ninh Binh, el día con más logística.</span></div>
+      <div class="lg"><span class="ic">⛵</span><span><b>Barco</b> (verde) — el crucero por Lan Ha Bay, con recogida en el hotel de Hanói.</span></div>
+      <div class="vuelos">
+        <b>Ojo con dos días:</b><br>
+        ① 31 ago — vuelo a las 19:10: nada de excursiones fuera de Hanói.<br>
+        ② 6 sep — traslado Phong Nha → Tam Coc: día logístico, sin planes turísticos.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HANÓI ============ -->
+<section id="hanoi" class="etapa-sec">
+  <div class="kicker">Etapa 1 · 1 noche</div>
+  <h2>Hanói — el aterrizaje</h2>
+  <span class="fechas-chip">Domingo 30 → lunes 31 de agosto</span>
+  <div class="banner">
+    <img src="img/hanoi-hoan-kiem.jpg" alt="Torre de la Tortuga en el lago Hoan Kiem" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">La Torre de la Tortuga en el lago Hoan Kiem, el centro exacto de Hanói</div>
+  </div>
+  <p class="intro">Llegáis a las 07:15 tras trece horas de vuelo, así que estos dos días son
+  <strong>intensos pero con freno de mano</strong>. Hanói es ruidosa, densa y absolutamente adictiva: mil
+  motos por minuto, abuelas cocinando en la acera y, a dos calles, un lago con un templo en una isla.
+  Base en <strong>Hoan Kiem</strong>, que es como dormir en el centro del centro.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 1 · Llegada y Old Quarter <span class="fecha">domingo 30 ago</span></h4>
+      <p><span class="bloque">Mañana</span> Llegada 07:15, traslado y dejar el equipaje (aunque no haya
+      habitación, el hotel la guarda). Primer <strong>café vietnamita</strong> en Hoan Kiem para reiniciar el
+      cuerpo. Vuelta al <strong>lago Hoan Kiem</strong>, <strong>templo Ngoc Son</strong> por el puente rojo
+      y calles del <strong>Old Quarter</strong>.</p>
+      <p><span class="bloque">Tarde</span> Descanso corto o masaje de piernas —la mejor inversión del viaje—.
+      <strong>Templo de la Literatura</strong> si el jet lag lo permite. Café con terraza y contemplación del caos.</p>
+      <p><span class="bloque">Noche</span> Cena temprana y paseo por el lago. A dormir pronto: el día 31 es largo.</p>
+      <div class="tip">Ritmo medio, no heroico. Y si alguien se cae rendido a las 16:00, mejor una siesta de una hora que arrastrarse toda la tarde.</div></div>
+    <div class="dia"><h4>Día 2 · Hanói cultural y vuelo nocturno <span class="fecha">lunes 31 ago</span></h4>
+      <p><span class="bloque">Mañana</span> <strong>Mausoleo de Ho Chi Minh</strong>, la <strong>Pagoda del
+      Pilar Único</strong> y el conjunto presidencial. Si ayer no dio tiempo, aquí encaja el Templo de la
+      Literatura. Moverse en <strong>Grab</strong> para no perder tiempo.</p>
+      <p><span class="bloque">Tarde</span> Comida tranquila y <strong>Museo de Etnología</strong> —el mejor
+      museo del país y muy cómodo—. Recoger equipaje y salir al aeropuerto con margen.</p>
+      <p><span class="bloque">Noche</span> Vuelo <strong>HAN 19:10 → DAD 20:35</strong>, coche a Hoi An
+      (~45 min) y check-in. Cena ligera si quedan fuerzas.</p>
+      <div class="tip">Nada de excursiones fuera de Hanói este día. Con el vuelo de las 19:10, salir del centro sobre las 16:30–17:00.</div></div>
+  </div>
+
+  <div class="imprescindibles">
+    <h3>Lo básico que ver en Hanói</h3>
+    <ul>
+      <li><b>Lago Hoan Kiem y templo Ngoc Son</b> — el corazón de la ciudad; al amanecer se llena de gente haciendo taichí.</li>
+      <li><b>Old Quarter (36 calles)</b> — cada calle tuvo su gremio: Hang Bac (plata), Hang Ma (papel), Hang Gai (seda).</li>
+      <li><b>Templo de la Literatura</b> — la primera universidad de Vietnam (1070), jardines y estelas sobre tortugas.</li>
+      <li><b>Mausoleo de Ho Chi Minh y Pagoda del Pilar Único</b> — solo por la mañana, código de vestimenta estricto.</li>
+      <li><b>Museo de Etnología</b> — las 54 etnias del país, con casas tradicionales a tamaño real en el jardín.</li>
+      <li><b>Catedral de San José</b> — neogótica y algo destartalada; alrededor, los mejores cafés jóvenes.</li>
+      <li><b>Train Street</b> — solo como paseo: la policía la cierra a menudo y los cafés abren y cierran según el mes.</li>
+      <li><b>Teatro de marionetas de agua Thang Long</b> — kitsch y encantador, 45 minutos junto al lago.</li>
+    </ul>
+  </div>
+
+  <div class="duo">
+    <figure><img src="img/hanoi-old-quarter.jpg" alt="Calle del Old Quarter de Hanói" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>El Old Quarter: 36 calles gremiales, aceras-cocina y tráfico que se cruza andando despacio</figcaption></figure>
+    <figure><img src="img/hanoi-templo-literatura.jpg" alt="Templo de la Literatura" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Templo de la Literatura: la universidad de 1070, el sitio más silencioso de Hanói</figcaption></figure>
+  </div>
+
+  <div class="trio">
+    <figure><img src="img/hanoi-mausoleo.jpg" alt="Mausoleo de Ho Chi Minh" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Mausoleo de Ho Chi Minh</figcaption></figure>
+    <figure><img src="img/hanoi-pagoda-un-pilar.jpg" alt="Pagoda del Pilar Único" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Pagoda del Pilar Único, al lado del mausoleo</figcaption></figure>
+    <figure><img src="img/hanoi-train-street.jpg" alt="Train Street de Hanói" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Train Street: el tren pasa a un palmo de las mesas</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué y dónde comer en Hanói</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-pho.jpg" alt="Pho bo" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Phở bò</figcaption></figure>
+      <figure><img src="img/comida-bun-cha.jpg" alt="Bun cha" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bún chả</figcaption></figure>
+      <figure><img src="img/comida-cha-ca.jpg" alt="Cha ca" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Chả cá</figcaption></figure>
+      <figure><img src="img/comida-banh-cuon.jpg" alt="Banh cuon" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bánh cuốn</figcaption></figure>
+      <figure><img src="img/comida-cafe-huevo.jpg" alt="Café de huevo" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cà phê trứng</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Phở bò (la sopa nacional, de desayuno)</span><span class="plato">Bún chả (cerdo a la brasa con fideos)</span>
+      <span class="plato">Chả cá (pescado con cúrcuma y eneldo)</span><span class="plato">Bánh cuốn (crepes de arroz al vapor)</span>
+      <span class="plato">Bánh mì</span><span class="plato">Nem rán (rollitos fritos)</span>
+      <span class="plato">Cà phê trứng (café con crema de huevo)</span><span class="plato">Bia hơi (cerveza de barril a 25 céntimos)</span>
+      <span class="plato">Xôi (arroz glutinoso del desayuno)</span>
+    </div>
+    <ul class="sitios">
+      <li><span class="nombre">Phở Gia Truyền</span> — <span class="dir">49 Bát Đàn</span> · el pho más famoso de Hanói; hay cola, se paga antes y se come rápido. Solo mañanas.
+        <a href="https://www.google.com/maps/search/?api=1&query=Pho%20Gia%20Truyen%2049%20Bat%20Dan%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Phở Thìn Lò Đúc</span> — <span class="dir">13 Lò Đúc</span> · versión con la carne salteada al wok, más grasienta e intensa. Un clásico.
+        <a href="https://www.google.com/maps/search/?api=1&query=Pho%20Thin%2013%20Lo%20Duc%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bún chả Hương Liên</span> — <span class="dir">24 Lê Văn Hưu</span> · el "bun cha de Obama": turístico pero bueno. Alternativa más local: <b>Bún chả Đắc Kim</b> (1 Hàng Mành).
+        <a href="https://www.google.com/maps/search/?api=1&query=Bun%20Cha%20Huong%20Lien%2024%20Le%20Van%20Huu%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Chả Cá Thăng Long</span> — <span class="dir">21 Đường Thành</span> · te ponen la sartén en la mesa con el pescado, el eneldo y los fideos. Un plato único que hay que probar.
+        <a href="https://www.google.com/maps/search/?api=1&query=Cha%20Ca%20Thang%20Long%2021%20Duong%20Thanh%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bánh cuốn Bà Hoành</span> — <span class="dir">66 Tô Hiến Thành</span> · crepes de arroz rellenas hechas al vapor delante de ti. Desayuno perfecto.
+        <a href="https://www.google.com/maps/search/?api=1&query=Banh%20Cuon%20Ba%20Hoanh%2066%20To%20Hien%20Thanh%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bánh mì 25</span> — <span class="dir">25 Hàng Cá</span> · el mejor bocadillo del Old Quarter, con terraza enfrente para sentarse.
+        <a href="https://www.google.com/maps/search/?api=1&query=Banh%20Mi%2025%20Hang%20Ca%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Cà phê Giảng</span> — <span class="dir">39 Nguyễn Hữu Huân</span> · aquí se inventó el café de huevo en 1946. Pedirlo caliente, al fondo del callejón.
+        <a href="https://www.google.com/maps/search/?api=1&query=Giang%20Cafe%2039%20Nguyen%20Huu%20Huan%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bia hơi Tạ Hiện</span> — <span class="dir">esquina Tạ Hiện · Lương Ngọc Quyến</span> · taburetes de plástico, cerveza fresquísima recién tirada y toda la ciudad joven en la calle.
+        <a href="https://www.google.com/maps/search/?api=1&query=Bia%20Hoi%20Corner%20Ta%20Hien%20Hanoi" target="_blank" rel="noopener">📍 Maps</a></li>
+    </ul>
+    <p>Regla de oro en Hanói: <strong>desayunar en la calle</strong>. El pho y el banh cuon son platos de mañana
+    —a las 11 muchos sitios ya han cerrado—. Y donde haya taburetes bajos llenos de vietnamitas, se come bien.</p>
+  </div>
+</section>
+
+<!-- ============ HOI AN ============ -->
+<section id="hoian" class="etapa-sec">
+  <div class="kicker">Etapa 2 · 3 noches</div>
+  <h2>Hoi An — farolillos y buena vida</h2>
+  <span class="fechas-chip">Lunes 31 ago → jueves 3 de septiembre</span>
+  <div class="banner">
+    <img src="img/hoian-casco.jpg" alt="Casco antiguo de Hoi An" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">El casco antiguo de Hoi An: muros amarillo mostaza, buganvillas y cero coches</div>
+  </div>
+  <p class="intro">Un puerto comercial del siglo XVI que se salvó de las guerras y del cemento: casas de
+  madera japonesas, chinas y vietnamitas, sin tráfico, con el río al lado y la playa a cinco kilómetros en
+  bici. Es la parada más relajada del viaje y la mejor para comer. Aquí <strong>no hay que correr</strong>:
+  se anda, se come y se vuelve a andar.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 3 · Hoi An histórico <span class="fecha">martes 1 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Casco antiguo: <strong>Puente Japonés</strong>, casas antiguas y
+      salones de asambleas chinos. Comprar el <strong>ticket del Old Town</strong> si vais a entrar en varios
+      monumentos. Fotos y cafés por la zona histórica.</p>
+      <p><span class="bloque">Tarde</span> Descanso en las horas de calor. Paseo por tiendas y sastrerías,
+      o bici suave. Volver al casco antes del atardecer.</p>
+      <p><span class="bloque">Noche</span> <strong>Farolillos</strong> junto al río Thu Bon, barquita con
+      farolillo si apetece y cena en el centro.</p>
+      <div class="tip">Día de muchos pasos y ningún desplazamiento: todo se hace andando o en bici.</div></div>
+    <div class="dia"><h4>Día 4 · Hoi An premium: playa, relax y fotos <span class="fecha">miércoles 2 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Sin madrugón: casco antiguo con calma y menos presión para las
+      fotos, mercado central, cafés bonitos y calles laterales. Si apetece actividad, bici por los alrededores.</p>
+      <p><span class="bloque">Tarde</span> <strong>An Bang Beach</strong> si el tiempo acompaña. Si llueve:
+      clase de cocina, spa o <strong>Coconut Village</strong> (Cam Thanh) en barca-cesta.</p>
+      <p><span class="bloque">Noche</span> Última noche de farolillos, compras pequeñas y cena tranquila.
+      Preparar el equipaje para el coche del día siguiente.</p>
+      <div class="tip">Quitar My Son del plan fue buena idea: ganáis descanso y llegáis enteros al día escénico de Hai Van.</div></div>
+    <div class="dia"><h4>Día 5 · Rumbo a Hue por la costa <span class="fecha">jueves 3 sep</span></h4>
+      <p>Salida en coche privado entre las 08:00 y las 09:00 con paradas pactadas. Ver la etapa de Hue.</p></div>
+  </div>
+
+  <div class="destacado rojo">
+    <h3>🇻🇳 Ojo: el 2 de septiembre es la Fiesta Nacional</h3>
+    <p>El <strong>Quốc khánh</strong> (Día Nacional) es festivo grande en todo Vietnam: banderas por todas
+    partes, familias enteras de viaje y monumentos llenos de turismo <em>local</em>, no extranjero.</p>
+    <ul>
+      <li>Museos y oficinas pueden cerrar o cambiar horario; los restaurantes, abiertos y a tope.</li>
+      <li>En Hoi An suele haber ambiente especial por la noche en el río: farolillos y gente.</li>
+      <li>Si queréis playa, ir temprano: An Bang se llena con la gente de Da Nang.</li>
+    </ul>
+    <div class="ojo">💡 Es un día perfecto para hacer justo lo que tenéis planeado —playa, calma y fotos— y dejar los monumentos para el 1.</div>
+  </div>
+
+  <div class="imprescindibles">
+    <h3>Lo básico que ver en Hoi An</h3>
+    <ul>
+      <li><b>Puente cubierto japonés (Chùa Cầu)</b> — el símbolo de la ciudad, del siglo XVI; sale en los billetes de 20.000 dong.</li>
+      <li><b>Casas antiguas</b> — Tan Ky y Phung Hung: siete generaciones de la misma familia y marcas de las inundaciones en la pared.</li>
+      <li><b>Salón de la Asamblea de Fujian</b> — el templo chino más espectacular, con espirales de incienso colgando.</li>
+      <li><b>Mercado central y muelle</b> — a primera hora, cuando descargan el pescado.</li>
+      <li><b>Farolillos al anochecer</b> — a partir de las 19:00; barquita con velas por el río Thu Bon (~50.000 VND).</li>
+      <li><b>An Bang Beach</b> — la playa buena, a 4 km en bici, con chiringuitos de verdad.</li>
+      <li><b>Cam Thanh (Coconut Village)</b> — palmeras de agua y barcas redondas de bambú; muy turístico pero divertido.</li>
+      <li><b>Sastres</b> — un traje o un vestido a medida en 24–48 h; encargar el primer día, probar el segundo.</li>
+      <li><b>Clase de cocina</b> — media jornada con visita al mercado: de lo mejor que se puede hacer aquí.</li>
+    </ul>
+  </div>
+
+  <div class="duo">
+    <figure><img src="img/hoian-puente-japones.jpg" alt="Puente japonés de Hoi An" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>El puente cubierto japonés, con su pequeño templo dentro</figcaption></figure>
+    <figure><img src="img/hoian-rio.jpg" alt="Río Thu Bon de noche" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>El río Thu Bon al anochecer: farolillos, velas flotantes y barquitas</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="img/hoian-an-bang.jpg" alt="Playa de An Bang" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>An Bang: barcas-cesta de bambú, la playa a 4 km del casco antiguo</figcaption></figure>
+    <figure><img src="img/hoian-farolillos.jpg" alt="Farolillos de Hoi An" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Calle de farolillos: la postal del viaje, mejor entre semana y sobre las 19:30</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué y dónde comer en Hoi An</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-cao-lau.jpg" alt="Cao lau" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cao lầu</figcaption></figure>
+      <figure><img src="img/comida-white-rose.jpg" alt="White rose" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bánh bao bánh vạc</figcaption></figure>
+      <figure><img src="img/comida-mi-quang.jpg" alt="Mi Quang" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Mì Quảng</figcaption></figure>
+      <figure><img src="img/comida-com-ga.jpg" alt="Com ga" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cơm gà</figcaption></figure>
+      <figure><img src="img/comida-banh-mi.jpg" alt="Banh mi" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bánh mì</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Cao lầu (solo existe aquí)</span><span class="plato">Bánh bao bánh vạc ("rosas blancas")</span>
+      <span class="plato">Hoành thánh (wonton frito)</span><span class="plato">Mì Quảng</span>
+      <span class="plato">Cơm gà (arroz con pollo y cúrcuma)</span><span class="plato">Bánh mì de Hoi An (el mejor del país)</span>
+      <span class="plato">Chè bắp (dulce de maíz del río)</span><span class="plato">Bia Larue bien fría</span>
+    </div>
+    <ul class="sitios">
+      <li><span class="nombre">Bánh mì Phượng</span> — <span class="dir">2B Phan Châu Trinh</span> · el bocadillo que hizo famoso Anthony Bourdain. Cola constante, pero va rápida.
+        <a href="https://www.google.com/maps/search/?api=1&query=Banh%20Mi%20Phuong%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Madam Khánh · The Banh Mi Queen</span> — <span class="dir">115 Trần Cao Vân</span> · la alternativa, más casera y con menos turistas. Muchos la prefieren.
+        <a href="https://www.google.com/maps/search/?api=1&query=Madam%20Khanh%20The%20Banh%20Mi%20Queen%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Cơm gà Bà Buội</span> — <span class="dir">22 Phan Châu Trinh</span> · el arroz con pollo de referencia de la ciudad desde hace décadas.
+        <a href="https://www.google.com/maps/search/?api=1&query=Com%20Ga%20Ba%20Buoi%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">White Rose (Bông Hồng Trắng)</span> — <span class="dir">533 Hai Bà Trưng</span> · la familia que abastece de "rosas blancas" a todo Hoi An; se ven hacer a mano.
+        <a href="https://www.google.com/maps/search/?api=1&query=White%20Rose%20Restaurant%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Morning Glory</span> — <span class="dir">106 Nguyễn Thái Học</span> · de Ms. Vy, la gran embajadora de la cocina de Hoi An. Reservar; también dan clases de cocina.
+        <a href="https://www.google.com/maps/search/?api=1&query=Morning%20Glory%20Restaurant%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Miss Ly Cafeteria 22</span> — <span class="dir">22 Nguyễn Huệ</span> · pequeño, familiar y con el mejor wonton frito del casco antiguo.
+        <a href="https://www.google.com/maps/search/?api=1&query=Miss%20Ly%20Cafeteria%2022%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Reaching Out Tea House</span> — <span class="dir">131 Trần Phú</span> · casa de té donde se guarda silencio: el equipo es sordo y se pide con fichas de madera. Una experiencia.
+        <a href="https://www.google.com/maps/search/?api=1&query=Reaching%20Out%20Tea%20House%20Hoi%20An" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Puestos del mercado central</span> — <span class="dir">Trần Quý Cáp</span> · el cao lau más barato y auténtico, en mesa compartida. Ir a mediodía.
+        <a href="https://www.google.com/maps/search/?api=1&query=Hoi%20An%20Central%20Market%20food%20stalls" target="_blank" rel="noopener">📍 Maps</a></li>
+    </ul>
+    <p>El <strong>cao lầu</strong> es el plato-fetiche: fideos gruesos que —dice la leyenda— solo salen bien
+    con el agua de un pozo concreto de la ciudad, con cerdo, brotes y trocitos crujientes. Y el bánh mì de aquí
+    tiene fama de ser el mejor de Vietnam, así que probad los dos sitios y decidid.</p>
+  </div>
+</section>
+
+<!-- ============ HUE ============ -->
+<section id="hue" class="etapa-sec">
+  <div class="kicker">Etapa 3 · 1 noche</div>
+  <h2>Hue — la capital imperial y el paso más bonito</h2>
+  <span class="fechas-chip">Jueves 3 → viernes 4 de septiembre</span>
+  <div class="banner">
+    <img src="img/hue-ciudad-imperial.jpg" alt="Puerta del Mediodía de la Ciudad Imperial de Hue" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">Ngo Mon, la Puerta del Mediodía: la entrada a la Ciudad Imperial de los Nguyen</div>
+  </div>
+  <p class="intro">El día del traslado es medio viaje en sí mismo: el <strong>Paso de Hai Van</strong>, la
+  frontera climática del país, con el mar a un lado y las montañas al otro. Hue fue capital imperial hasta
+  1945 y conserva la ciudadela, las tumbas de los emperadores repartidas por el campo y una cocina
+  refinadísima —la comida de palacio— que es de lo mejor de Vietnam.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 5 · Hoi An → Hai Van Pass → Hue <span class="fecha">jueves 3 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Salida 08:00–09:00 en coche privado. Primera parada fuerte en las
+      <strong>Montañas de Mármol</strong> (Marble Mountains), y después el <strong>Paso de Hai Van</strong>
+      con sus miradores y el búnker americano.</p>
+      <p><span class="bloque">Tarde</span> <strong>Lang Co</strong> y la laguna de <strong>Lap An</strong>
+      si encaja de tiempo. Llegada a Hue y check-in. <strong>Ciudad Imperial</strong> si llegáis con margen
+      (cierra sobre las 17:00–17:30).</p>
+      <p><span class="bloque">Noche</span> Paseo por el <strong>río Perfume</strong>, puente Trang Tien
+      iluminado y cena tranquila.</p>
+      <div class="tip">El coche privado es la opción correcta aquí: con maletas, con paradas a medida y ~4 h de ruta con vistas. Pactar las paradas antes de salir.</div></div>
+    <div class="dia"><h4>Día 6 · Hue esencial y salida a Phong Nha <span class="fecha">viernes 4 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Si no visteis la Ciudad Imperial, primero eso. Si ya está vista,
+      la <strong>tumba de Khai Dinh</strong>: compacta, muy fotogénica y distinta a todo (hormigón,
+      mosaicos y dragones).</p>
+      <p><span class="bloque">Tarde</span> Traslado a <strong>Phong Nha</strong> (~4 h en coche por la costa,
+      o tren hasta Dong Hoi + coche). Check-in en Karst Villas y paseo por el entorno rural si queda luz.</p>
+      <p><span class="bloque">Noche</span> Cena y confirmar la logística del día de cuevas: empresa, hora de
+      recogida y ropa según la opción elegida.</p>
+      <div class="tip">Con una sola noche en Hue, la eficiencia está en elegir bien: Ciudadela + una tumba. No intentéis ver las cinco tumbas imperiales.</div></div>
+  </div>
+
+  <div class="imprescindibles">
+    <h3>Lo básico que ver en Hue y por el camino</h3>
+    <ul>
+      <li><b>Montañas de Mármol (Da Nang)</b> — cuevas con santuarios budistas dentro de la roca; la Huyen Khong, con la luz entrando por el techo, es espectacular. Hay ascensor.</li>
+      <li><b>Paso de Hai Van</b> — 21 km de curvas sobre el mar; el "paso de las nubes" que separa el norte del sur climático.</li>
+      <li><b>Lang Co y laguna de Lap An</b> — playa larga y una laguna con criaderos de ostras y montañas al fondo.</li>
+      <li><b>Ciudad Imperial (Hoàng Thành)</b> — 2 h mínimo: Ngo Mon, el Palacio de la Suprema Armonía, la Ciudad Púrpura Prohibida y los jardines en ruinas.</li>
+      <li><b>Tumba de Khai Dinh</b> — la más impactante, mezcla de gótico e imperial chino, con el salón interior cubierto de mosaicos.</li>
+      <li><b>Tumba de Tu Duc</b> — la más bonita en cuanto a paisaje: lagos, pinos y pabellones (si sobra tiempo).</li>
+      <li><b>Pagoda Thien Mu</b> — la torre de siete pisos junto al río Perfume, símbolo de la ciudad.</li>
+      <li><b>Mercado Dong Ba</b> — el mercado grande de Hue, junto al río; sombreros cónicos y comida.</li>
+    </ul>
+  </div>
+
+  <div class="trio">
+    <figure><img src="img/hai-van-pass.jpg" alt="Paso de Hai Van" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Paso de Hai Van: la costa desde arriba</figcaption></figure>
+    <figure><img src="img/marble-mountains.jpg" alt="Cueva de las Montañas de Mármol" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Huyen Khong, la cueva-santuario de las Montañas de Mármol</figcaption></figure>
+    <figure><img src="img/lang-co.jpg" alt="Playa de Lang Co" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Lang Co, parada de media mañana</figcaption></figure>
+  </div>
+  <div class="duo">
+    <figure><img src="img/hue-khai-dinh.jpg" alt="Tumba de Khai Dinh" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Tumba de Khai Dinh: escaleras custodiadas por dragones y mosaicos dentro</figcaption></figure>
+    <figure><img src="img/hue-thien-mu.jpg" alt="Pagoda Thien Mu" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Pagoda Thien Mu, sobre el río Perfume</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué y dónde comer en Hue</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-bun-bo-hue.jpg" alt="Bun bo Hue" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bún bò Huế</figcaption></figure>
+      <figure><img src="img/comida-banh-beo.jpg" alt="Banh beo" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bánh bèo</figcaption></figure>
+      <figure><img src="img/comida-nem-lui.jpg" alt="Nem lui" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Nem lụi</figcaption></figure>
+      <figure><img src="img/comida-com-hen.jpg" alt="Com hen" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cơm hến</figcaption></figure>
+      <figure><img src="img/comida-che.jpg" alt="Che" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Chè</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Bún bò Huế (la sopa picante de aquí)</span><span class="plato">Bánh bèo, nậm y lọc (los "pastelitos" imperiales)</span>
+      <span class="plato">Nem lụi (brochetas de cerdo con limoncillo)</span><span class="plato">Bánh khoái</span>
+      <span class="plato">Cơm hến (arroz con almejas de río)</span><span class="plato">Chè (los dulces de Hue)</span>
+      <span class="plato">Cơm chay (cocina vegetariana de pagoda)</span>
+    </div>
+    <ul class="sitios">
+      <li><span class="nombre">Bún bò Bà Tuyết</span> — <span class="dir">47 Nguyễn Công Trứ</span> · el bún bò de referencia: caldo con limoncillo y gambas fermentadas. Solo mañanas.
+        <a href="https://www.google.com/maps/search/?api=1&query=Bun%20bo%20Ba%20Tuyet%2047%20Nguyen%20Cong%20Tru%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Quán Hàng Me</span> — <span class="dir">12 Võ Thị Sáu</span> · la bandeja completa de bánh bèo, nậm, lọc y ram ít. Perfecto para probar de todo de una vez.
+        <a href="https://www.google.com/maps/search/?api=1&query=Quan%20Hang%20Me%20Vo%20Thi%20Sau%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bánh bèo Bà Đỏ</span> — <span class="dir">8 Nguyễn Bỉnh Khiêm</span> · la versión de barrio, más barata y más llena de locales.
+        <a href="https://www.google.com/maps/search/?api=1&query=Banh%20beo%20Ba%20Do%20Nguyen%20Binh%20Khiem%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Quán Hạnh</span> — <span class="dir">11 Phó Đức Chính</span> · nem lụi y bánh khoái que te enrollas tú mismo con hierbas. Muy fácil si es vuestra primera vez.
+        <a href="https://www.google.com/maps/search/?api=1&query=Quan%20Hanh%2011%20Pho%20Duc%20Chinh%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Cơm hến Hoa Đông</span> — <span class="dir">isla de Cồn Hến</span> · el plato más humilde y más de Hue: arroz frío con almejas diminutas del río. Un euro.
+        <a href="https://www.google.com/maps/search/?api=1&query=Com%20Hen%20Hoa%20Dong%20Con%20Hen%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Chè Hẻm</span> — <span class="dir">17 Hùng Vương</span> · veinte tipos de chè (dulces de judía, coco, jengibre…) en un callejón. El postre de la ciudad.
+        <a href="https://www.google.com/maps/search/?api=1&query=Che%20Hem%20Hung%20Vuong%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Liên Hoa</span> — <span class="dir">3 Lê Quý Đôn</span> · cocina vegetariana de pagoda, buenísima y baratísima. Hue es la capital vegetariana del país.
+        <a href="https://www.google.com/maps/search/?api=1&query=Lien%20Hoa%20vegetarian%20restaurant%20Hue" target="_blank" rel="noopener">📍 Maps</a></li>
+    </ul>
+    <p>Hue come en <strong>raciones pequeñas y muchas</strong>: es herencia de la corte, donde al emperador se
+    le servían decenas de platitos. Aprovechad que solo tenéis una noche y cenad picoteando de todo.</p>
+  </div>
+</section>
+
+<!-- ============ PHONG NHA ============ -->
+<section id="phongnha" class="etapa-sec">
+  <div class="kicker">Etapa 4 · 2 noches</div>
+  <h2>Phong Nha — las cuevas más grandes del mundo</h2>
+  <span class="fechas-chip">Viernes 4 → domingo 6 de septiembre</span>
+  <div class="banner">
+    <img src="img/phongnha-paradise.jpg" alt="Cueva del Paraíso" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">Paradise Cave (Thien Duong): 31 km de galerías, con pasarela de madera en el primer kilómetro</div>
+  </div>
+  <p class="intro">Un valle rural de búfalos y karst donde está el parque nacional de
+  <strong>Phong Nha-Ke Bang</strong>, con el mayor sistema de cuevas del planeta —incluida Son Doong, la
+  cueva más grande del mundo, que se visita solo en expediciones de miles de euros—. Vosotros vais a las dos
+  accesibles, que ya son una barbaridad. Dormís en un entorno rural precioso y con muy poca gente.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 6 · Llegada al valle <span class="fecha">viernes 4 sep</span></h4>
+      <p>Llegada por la tarde, check-in en Karst Villas y paseo corto por los alrededores. Cena tranquila
+      y decidir la opción del día siguiente.</p></div>
+    <div class="dia"><h4>Día 7 · Día de cuevas <span class="fecha">sábado 5 sep</span></h4>
+      <p><span class="bloque">Mañana</span> <strong>Paradise Cave</strong> como pieza central en las dos
+      opciones: es más larga, más espectacular y no depende del calor. Salida sobre las 08:00.</p>
+      <p><span class="bloque">Tarde</span> Según la opción elegida: <strong>Dark Cave</strong> (tirolina,
+      baño de barro, kayak) o <strong>Phong Nha Cave en barco</strong> (tranquila, fotogénica, sin esfuerzo).</p>
+      <p><span class="bloque">Noche</span> Descanso, cena y preparar el traslado del día siguiente.
+      Nada de planes extra: el día de cuevas ya llena.</p>
+      <div class="tip">Decidid la empresa o el conductor la noche antes. Con energía y buen tiempo: aventura. Con cansancio o lluvia: la cómoda.</div></div>
+    <div class="dia"><h4>Día 8 · Traslado a Ninh Binh <span class="fecha">domingo 6 sep</span></h4>
+      <p>Día logístico: check-out y traslado a Tam Coc según la conexión que cerréis (ver el bloque azul).
+      Comida sencilla por el camino y llegada al ecolodge por la tarde.</p></div>
+  </div>
+
+  <div class="destacado">
+    <h3>🔦 Las dos opciones del día de cuevas</h3>
+    <p>Dejadlas las dos preseleccionadas y decidid por la mañana según energía, clima y ganas de mojaros.
+    En ambas, <strong>Paradise Cave es el núcleo del día</strong>.</p>
+    <div class="tabla-wrap" style="margin-top:16px">
+      <table class="tab">
+        <thead><tr><th>Opción</th><th>Qué incluye</th><th>Para quién</th><th>Desgaste</th></tr></thead>
+        <tbody>
+          <tr><td><b>A · Aventura</b></td><td>Paradise Cave + <b>Dark Cave</b> (tirolina, barro, kayak)</td>
+            <td>Si queréis un día activo, diferente y memorable, sin miedo a acabar hechos polvo.</td><td>Alto</td></tr>
+          <tr><td><b>B · Cómoda / paisaje</b></td><td>Paradise Cave + <b>Phong Nha Cave</b> en barco por el río Son</td>
+            <td>Si queréis cuevas espectaculares, fotos y naturaleza sin exigencia física.</td><td>Medio</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tabla-wrap" style="margin-top:14px">
+      <table class="tab">
+        <thead><tr><th>Hora</th><th>Opción A · aventura</th><th>Opción B · cómoda</th></tr></thead>
+        <tbody>
+          <tr><td><b>08:00</b></td><td>Salida desde el alojamiento</td><td>Salida desde el alojamiento</td></tr>
+          <tr><td><b>08:30–12:00</b></td><td>Paradise Cave</td><td>Paradise Cave</td></tr>
+          <tr><td><b>12:00–13:00</b></td><td>Comida y pausa</td><td>Comida y pausa</td></tr>
+          <tr><td><b>13:30–16:30</b></td><td>Dark Cave: agua, barro y actividad física</td><td>Phong Nha Cave en barco: tranquila y paisajística</td></tr>
+          <tr><td><b>17:00</b></td><td>Vuelta al alojamiento</td><td>Vuelta al alojamiento</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ojo">🚗 <b>Cómo ir:</b> tour organizado con recogida en el alojamiento (cero estrés, lo más
+    eficiente) o conductor privado de día completo (más flexible, mejor para fotos sin prisa). La moto solo
+    si tenéis experiencia y no llueve — no es la recomendación para este viaje.</div>
+  </div>
+
+  <div class="destacado azul">
+    <h3>🚆 El traslado del 6 de septiembre: Phong Nha → Ninh Binh</h3>
+    <p>Es el día con más riesgo de fricción del viaje. Hay tres formas de hacerlo y conviene cerrarla
+    <strong>antes de salir de España</strong>:</p>
+    <ul>
+      <li><b>Tren desde Dong Hoi</b> (45 min en coche desde Phong Nha) hasta la estación de Ninh Binh: ~6–8 h,
+      cómodo, barato y con paisaje. Hay trenes de día y nocturnos con literas.</li>
+      <li><b>Vuelo Dong Hoi (VDH) → Hanói</b> (~1 h 15) + coche Hanói–Ninh Binh (~1 h 45). Lo más rápido si
+      encontráis un vuelo a buena hora, pero suma dos traslados por tierra.</li>
+      <li><b>Autobús-cama directo</b> (sleeping bus): lo más barato, ~8–9 h, pero el menos cómodo con maletas.</li>
+    </ul>
+    <div class="ojo">💡 Sea cual sea la opción, este día no lleva turismo: salir, comer por el camino y llegar
+    a Tam Coc con luz para una vuelta suave en bici por los arrozales.</div>
+  </div>
+
+  <div class="duo">
+    <figure><img src="img/phongnha-cueva.jpg" alt="Cueva de Phong Nha en barco" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Phong Nha Cave: se entra navegando por el río Son, en barca de madera</figcaption></figure>
+    <figure><img src="img/phongnha-paisaje.jpg" alt="Parque nacional Phong Nha-Ke Bang" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>La boca de la cueva y el karst del parque nacional, Patrimonio de la Unesco</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué y dónde comer en Phong Nha</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-street.jpg" alt="Comida local" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cocina rural</figcaption></figure>
+      <figure><img src="img/comida-bia-hoi.jpg" alt="Cerveza local" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cerveza fría al final del día</figcaption></figure>
+      <figure><img src="img/comida-nem-ran.jpg" alt="Rollitos" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Nem rán</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Gà nướng (pollo a la brasa con hierbas)</span><span class="plato">Cháo cá (arroz caldoso con pescado del río Son)</span>
+      <span class="plato">Cerdo asado del valle</span><span class="plato">Verduras del huerto salteadas con ajo</span>
+      <span class="plato">Cerveza local bien fría</span>
+    </div>
+    <ul class="sitios">
+      <li><span class="nombre">The Pub With Cold Beer</span> — <span class="dir">valle de Bong Lai</span> · una casa de campo al final de un camino de tierra: pollo a la brasa, hamaca y vistas. La experiencia más recordada de Phong Nha.
+        <a href="https://www.google.com/maps/search/?api=1&query=The%20Pub%20With%20Cold%20Beer%20Bong%20Lai%20Phong%20Nha" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Bomb Crater Bar</span> — <span class="dir">valle de Bong Lai</span> · bar junto a un cráter de bomba convertido en estanque, con atardeceres y comida sencilla.
+        <a href="https://www.google.com/maps/search/?api=1&query=Bomb%20Crater%20Bar%20Phong%20Nha" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Momma D's (Đức Hiếu)</span> — <span class="dir">pueblo de Phong Nha</span> · comida casera vietnamita en mesa compartida, cantidades generosas.
+        <a href="https://www.google.com/maps/search/?api=1&query=Momma%20D%27s%20restaurant%20Phong%20Nha" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Phong Nha Farmstay / Bamboo Cafe</span> — <span class="dir">Cù Lạc</span> · la cocina de los farmstays, fiable y con opciones occidentales si un día apetece descansar del arroz.
+        <a href="https://www.google.com/maps/search/?api=1&query=Phong%20Nha%20Farmstay" target="_blank" rel="noopener">📍 Maps</a></li>
+    </ul>
+    <p>Aquí se come donde se duerme o en cuatro sitios del valle, y precisamente por eso se come bien:
+    producto de la huerta y del río. Reservad la cena en el alojamiento si volvéis tarde de las cuevas.</p>
+  </div>
+</section>
+
+<!-- ============ NINH BINH ============ -->
+<section id="ninhbinh" class="etapa-sec">
+  <div class="kicker">Etapa 5 · 2 noches</div>
+  <h2>Tam Coc y Ninh Binh — la bahía de Ha Long en tierra</h2>
+  <span class="fechas-chip">Domingo 6 → martes 8 de septiembre</span>
+  <div class="banner">
+    <img src="img/ninhbinh-hang-mua.jpg" alt="Vista desde Hang Mua" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">La vista desde lo alto de Hang Mua: arrozales, río y montañas de piedra caliza hasta el horizonte</div>
+  </div>
+  <p class="intro">Los mismos peñones kársticos de Ha Long pero saliendo de un mar de arrozales, y con
+  caminos rurales entre medias para recorrerlos en bici. Se duerme en un ecolodge en el campo, se navega
+  en barca de remos —muchas remeras reman con los pies— y se sube a un mirador que es la foto más famosa
+  del norte de Vietnam. Es la etapa más bonita a ras de suelo de todo el viaje.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 8 · Llegada a Tam Coc <span class="fecha">domingo 6 sep</span></h4>
+      <p><span class="bloque">Tarde</span> Llegada al Nature Garden Ecolodge, paseo en bici por los arrozales
+      si queda luz y primer contacto con el paisaje.</p>
+      <p><span class="bloque">Noche</span> Cena local y descanso. Preparar Hang Mua y Trang An para mañana.</p></div>
+    <div class="dia"><h4>Día 9 · El día grande de Ninh Binh <span class="fecha">lunes 7 sep</span></h4>
+      <p><span class="bloque">Mañana</span> <strong>Hang Mua</strong> muy temprano (05:30–06:00): los ~500
+      escalones hasta el mirador del dragón, antes del calor y de los grupos. Desayuno después.</p>
+      <p><span class="bloque">Mediodía</span> <strong>Trang An</strong> en barca: 2–3 horas navegando entre
+      cuevas inundadas y templos. Es la actividad acuática principal, mejor que repetir con Tam Coc.</p>
+      <p><span class="bloque">Tarde</span> <strong>Pagoda Bich Dong</strong>, ruta en bici por los arrozales y,
+      si sobra energía, algún mirador o paseo por Tam Coc.</p>
+      <p><span class="bloque">Noche</span> Cena tranquila y preparar la salida a Hanói.</p>
+      <div class="tip">No hagáis Trang An y el barco de Tam Coc el mismo día: se parecen mucho. Trang An + bici + Bich Dong funciona mejor.</div></div>
+    <div class="dia"><h4>Día 10 · Última mañana y vuelta a Hanói <span class="fecha">martes 8 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Si quedó pendiente Trang An, hacedlo temprano. Alternativa:
+      <strong>Hoa Lu</strong> (la capital de Vietnam en el siglo X) más bici suave. Check-out.</p>
+      <p><span class="bloque">Tarde</span> Traslado a Hanói (~1 h 45), check-in en el Eliana Robusta y tarde
+      ligera por el Old Quarter.</p>
+      <p><span class="bloque">Noche</span> Cena en Hanói y mochila pequeña preparada para el crucero
+      —la maleta grande se puede dejar en el hotel—.</p>
+      <div class="tip">Día flexible a propósito: sirve para recuperar cualquier cosa que se quedara pendiente sin poner en riesgo el crucero.</div></div>
+  </div>
+
+  <div class="imprescindibles">
+    <h3>Lo básico que ver en Ninh Binh</h3>
+    <ul>
+      <li><b>Hang Mua</b> — 500 escalones hasta la estatua del dragón; la mejor panorámica de todo el valle. Al amanecer, sin gente.</li>
+      <li><b>Trang An</b> — Patrimonio de la Unesco: rutas de barca de 2 a 3 h que atraviesan cuevas por las que hay que agachar la cabeza. La ruta 1 es la clásica; la 2 y la 3 tienen menos gente.</li>
+      <li><b>Tam Coc</b> — "las tres cuevas": el paseo en barca por el río Ngo Dong entre arrozales.</li>
+      <li><b>Pagoda Bich Dong</b> — templo de tres niveles encajado en la montaña, subiendo entre cuevas.</li>
+      <li><b>Hoa Lu</b> — la antigua capital del siglo X, con los templos de las dinastías Dinh y Le.</li>
+      <li><b>Arrozales en bici</b> — el plan que más se recuerda: caminos entre campos, búfalos y niños saludando.</li>
+      <li><b>Bai Dinh</b> — el complejo budista más grande del sudeste asiático; monumental, moderno y opcional.</li>
+    </ul>
+  </div>
+
+  <div class="trio">
+    <figure><img src="img/ninhbinh-trang-an.jpg" alt="Trang An" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Trang An: barcas de remos entre paredes de roca</figcaption></figure>
+    <figure><img src="img/ninhbinh-tam-coc.jpg" alt="Tam Coc" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Tam Coc, por el río Ngo Dong</figcaption></figure>
+    <figure><img src="img/ninhbinh-bich-dong.jpg" alt="Pagoda Bich Dong" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bich Dong, la pagoda dentro de la montaña</figcaption></figure>
+    <figure><img src="img/ninhbinh-hoa-lu.jpg" alt="Hoa Lu" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Hoa Lu, capital de Vietnam en el siglo X</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué y dónde comer en Ninh Binh</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-de-nui.jpg" alt="Cabra de montaña" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Dê núi (cabra)</figcaption></figure>
+      <figure><img src="img/comida-com-chay.jpg" alt="Com chay" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cơm cháy</figcaption></figure>
+      <figure><img src="img/comida-goi-cuon.jpg" alt="Rollitos frescos" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Gỏi cuốn</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Dê núi (cabra de montaña, la especialidad absoluta)</span>
+      <span class="plato">Cơm cháy (torta de arroz crujiente con salsa)</span>
+      <span class="plato">Ốc núi (caracoles de montaña)</span><span class="plato">Miến lươn (fideos con anguila)</span>
+      <span class="plato">Piña de Ninh Binh</span>
+    </div>
+    <ul class="sitios">
+      <li><span class="nombre">Chinh Thu</span> — <span class="dir">Tam Cốc</span> · el clásico de la zona para probar la cabra en sus variantes (a la brasa, con limón, con sésamo) y el arroz crujiente.
+        <a href="https://www.google.com/maps/search/?api=1&query=Chinh%20Thu%20restaurant%20Tam%20Coc%20Ninh%20Binh" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Đức Dê</span> — <span class="dir">ciudad de Ninh Bình</span> · muy popular entre vietnamitas; cabra y cơm cháy en versión de restaurante grande.
+        <a href="https://www.google.com/maps/search/?api=1&query=Duc%20De%20restaurant%20Ninh%20Binh" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Chookie's Beer Garden</span> — <span class="dir">Tam Cốc</span> · el punto de encuentro del pueblo: comida vietnamita y occidental, cerveza fría y buena información de rutas.
+        <a href="https://www.google.com/maps/search/?api=1&query=Chookie%27s%20Beer%20Garden%20Tam%20Coc" target="_blank" rel="noopener">📍 Maps</a></li>
+      <li><span class="nombre">Father Cooking Restaurant</span> — <span class="dir">Tam Cốc</span> · pequeño, familiar y muy bien valorado; ideal para cenar después del día largo.
+        <a href="https://www.google.com/maps/search/?api=1&query=Father%20Cooking%20Restaurant%20Tam%20Coc" target="_blank" rel="noopener">📍 Maps</a></li>
+    </ul>
+    <p>La cabra de montaña se cría suelta por los peñones y aquí es <em>la</em> especialidad: se pide con
+    cơm cháy, que es una torta de arroz frito crujiente sobre la que se echa un guiso. Pedid una ración de
+    cada para compartir y no os quedáis cortos.</p>
+  </div>
+</section>
+
+<!-- ============ LAN HA BAY ============ -->
+<section id="lanha" class="etapa-sec">
+  <div class="kicker">Etapa 6 · 1 noche a bordo</div>
+  <h2>Lan Ha Bay — la bahía sin multitudes</h2>
+  <span class="fechas-chip">Miércoles 9 → jueves 10 de septiembre</span>
+  <div class="banner">
+    <img src="img/lanha-bay.jpg" alt="Bahía de Lan Ha" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">Lan Ha Bay, al sur de Ha Long: el mismo paisaje, con una fracción de los barcos</div>
+  </div>
+  <p class="intro">Lan Ha es la continuación de la bahía de Ha Long por el lado de la isla de Cat Ba:
+  idénticos islotes de piedra caliza saliendo del agua, pero con menos tráfico de barcos, playitas
+  escondidas y pueblos flotantes de pescadores. Elegir esta bahía en vez de la clásica es de las mejores
+  decisiones del itinerario.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 11 · Embarque y bahía <span class="fecha">miércoles 9 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Recogida en el hotel de Hanói y traslado al puerto (~2 h 30 por
+      la autopista). Embarque y comida a bordo mientras el barco sale a la bahía.</p>
+      <p><span class="bloque">Tarde</span> Actividades según programa: <strong>kayak</strong> entre los
+      islotes, baño desde el barco, alguna cueva o playa, y visita a un pueblo flotante. Atardecer en cubierta.</p>
+      <p><span class="bloque">Noche</span> Cena a bordo, pesca de calamares desde la barandilla si la ofrecen,
+      y noche en el camarote. Desconectad: la cobertura va y viene.</p>
+      <div class="tip">No planifiquéis nada más este día. El crucero organiza cada hora y se disfruta mucho más dejándose llevar.</div></div>
+    <div class="dia"><h4>Día 12 · Fin de crucero y tarde en Hanói <span class="fecha">jueves 10 sep</span></h4>
+      <p><span class="bloque">Mañana</span> Taichí en cubierta al amanecer (opcional, pero el amanecer sí),
+      actividad corta, brunch y desembarque. Traslado de vuelta a Hanói.</p>
+      <p><span class="bloque">Tarde</span> Check-in en el Heritage Ham Long, compras ligeras (café, seda,
+      souvenirs), masaje o descanso y paseo por el French Quarter y Hoan Kiem.</p>
+      <p><span class="bloque">Noche</span> Cena especial sin desplazamiento largo. Noche tranquila.</p>
+      <div class="tip">No reservéis nada con hora cerrada para esta tarde: la vuelta del crucero se retrasa con facilidad.</div></div>
+  </div>
+
+  <div class="destacado azul">
+    <h3>⛵ Qué esperar del crucero</h3>
+    <ul>
+      <li><b>Ritmo:</b> comida nada más embarcar, actividades por la tarde, cena, y al día siguiente una
+      actividad corta antes de volver. En total se está a bordo unas 22 horas.</li>
+      <li><b>Qué llevar:</b> mochila pequeña (la maleta grande se queda en el hotel de Hanói), bañador,
+      chanclas, crema, ropa ligera para la cena, y algo de abrigo fino si refresca de noche en cubierta.</li>
+      <li><b>Qué suele estar incluido:</b> traslados, comidas, kayak o barca de bambú y las entradas de la
+      bahía. Las bebidas casi nunca — y suelen ser caras a bordo.</li>
+      <li><b>Mareo:</b> la bahía está protegida y el agua está prácticamente plana. No hace falta pastilla
+      salvo que seáis muy sensibles.</li>
+      <li><b>Meteorología:</b> septiembre es temporada de tifones en el golfo de Tonkín. Si las autoridades
+      cierran la bahía, los cruceros cancelan y reembolsan o reprograman. Es raro, pero conviene saberlo.</li>
+    </ul>
+    <div class="ojo">🦑 Vuestra reserva: <b>Bat Group Trading Transport and Tourism Company Limited</b> · noche del 9 al 10 de septiembre.</div>
+  </div>
+
+  <div class="duo">
+    <figure><img src="img/lanha-kayak.jpg" alt="Kayak en la bahía" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Kayak por las cuevas y arcos de la bahía: la mejor actividad del crucero</figcaption></figure>
+    <figure><img src="img/lanha-crucero.jpg" alt="Barcos de crucero al atardecer" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Atardecer desde cubierta, con los juncos fondeados</figcaption></figure>
+  </div>
+
+  <div class="comer">
+    <h3>Qué se come a bordo (y en Cat Ba)</h3>
+    <div class="comer-fotos">
+      <figure><img src="img/comida-marisco.jpg" alt="Marisco" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Marisco de la bahía</figcaption></figure>
+      <figure><img src="img/catba.jpg" alt="Isla de Cat Ba" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cat Ba</figcaption></figure>
+      <figure><img src="img/comida-nem-ran.jpg" alt="Rollitos" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Nem rán</figcaption></figure>
+    </div>
+    <div class="platos">
+      <span class="plato">Hải sản (marisco de las granjas flotantes)</span><span class="plato">Chả mực (pastelitos de calamar de Ha Long)</span>
+      <span class="plato">Nem cua bể (rollitos de cangrejo, de Hai Phong)</span><span class="plato">Ngao hấp (almejas al vapor con limoncillo)</span>
+      <span class="plato">Bánh đa cua (sopa de cangrejo de Hai Phong)</span>
+    </div>
+    <p>La comida del crucero es un bufé o menú compartido con mucho marisco, y suele estar bastante bien.
+    Si el barco para en un pueblo flotante, ahí es donde se compran los mejores calamares y las ostras.
+    Y si alguna vez pasáis por Hai Phong de camino, el <em>bánh đa cua</em> es la sopa insignia de la zona.</p>
+  </div>
+</section>
+
+<!-- ============ HANÓI FINAL ============ -->
+<section id="hanoi2" class="etapa-sec">
+  <div class="kicker">Etapa 7 · 2 noches</div>
+  <h2>Hanói final — compras, cafés y despedida</h2>
+  <span class="fechas-chip">Jueves 10 → sábado 12 de septiembre</span>
+  <div class="banner">
+    <img src="img/hanoi-catedral.jpg" alt="Catedral de San José de Hanói" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')">
+    <div class="pie">La catedral de San José: alrededor están los mejores cafés y las tiendas de seda</div>
+  </div>
+  <p class="intro">Volvéis a Hanói con la ciudad ya "aprendida", que es cuando mejor se disfruta: sin
+  monumentos obligatorios, con tiempo para los cafés, el mercado y lo que quedó pendiente el primer día.
+  El 12 salís temprano, así que el 11 es el último día real.</p>
+
+  <div class="dias">
+    <div class="dia"><h4>Día 13 · Hanói sin prisa <span class="fecha">viernes 11 sep</span></h4>
+      <p><span class="bloque">Mañana</span> <strong>Mercado Dong Xuan</strong> o compras finales por Hang Gai
+      (seda) y Hang Bac. Cafés por el Old Quarter. Si falta algo cultural: <strong>Museo de Etnología</strong>
+      o Templo de la Literatura.</p>
+      <p><span class="bloque">Tarde</span> <strong>Bat Trang</strong> (el pueblo alfarero, a 30 min) solo si
+      apetece una excursión suave; si no, quedarse en la ciudad. Maletas y revisión de compras.</p>
+      <p><span class="bloque">Noche</span> Última cena temprano, documentación y equipaje listos, y a dormir
+      pronto: el vuelo sale a las 08:45.</p>
+      <div class="tip">Confirmad el coche al aeropuerto para las 06:00 aprox. Del centro al aeropuerto Noi Bai hay unos 45 minutos.</div></div>
+    <div class="dia"><h4>Día 14 · Vuelo a casa <span class="fecha">sábado 12 sep</span></h4>
+      <p>Salida del hotel sobre las 06:00 y vuelo <strong>HAN 08:45 → MAD 20:45</strong>. Se llega a Madrid
+      el mismo día, con el cuerpo cambiado de hora y la cabeza todavía en el Old Quarter.</p></div>
+  </div>
+
+  <div class="imprescindibles">
+    <h3>Qué hacer y qué comprar</h3>
+    <ul>
+      <li><b>Café vietnamita</b> — el mejor souvenir: robusta de Buon Ma Thuot, mejor en grano y en tienda especializada. Y un filtro <em>phin</em> de aluminio por dos euros.</li>
+      <li><b>Seda en Hang Gai</b> — pañuelos, camisas y ropa a medida en un par de días.</li>
+      <li><b>Mercado Dong Xuan</b> — el mercado grande y caótico del Old Quarter; regatear con sonrisa.</li>
+      <li><b>Bat Trang</b> — cerámica desde hace 700 años, a 30 min en coche; se puede pintar tu propia pieza.</li>
+      <li><b>Marionetas de agua</b> — el espectáculo del teatro Thang Long, si no lo visteis el primer día.</li>
+      <li><b>Un último masaje</b> — 10–15 € por una hora en un sitio decente. Rendidos como llegaréis, es obligatorio.</li>
+      <li><b>Cafés con vistas</b> — los de la Torre de la Tortuga (Cafe Pho Co, entrando por una tienda de seda) o los del barrio de la catedral.</li>
+    </ul>
+  </div>
+
+  <div class="duo">
+    <figure><img src="img/hanoi-dong-xuan.jpg" alt="Mercado Dong Xuan" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Mercado Dong Xuan, el más grande de Hanói</figcaption></figure>
+    <figure><img src="img/bat-trang.jpg" alt="Cerámica de Bat Trang" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bat Trang: el pueblo de la cerámica, a media hora de la ciudad</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ GUÍA DE COMIDA ============ -->
+<section id="comer" class="etapa-sec">
+  <div class="kicker">La parte importante</div>
+  <h2>Guía de comida vietnamita</h2>
+  <p class="intro">Vietnam se come en la calle, en taburetes de plástico de 25 cm y con una servilleta de
+  papel rosa. La cocina cambia radicalmente de norte a centro: en Hanói es sutil, salada y a base de caldos;
+  en Hue, picante, refinada y en raciones pequeñas; en Hoi An, dulce, con hierbas y herencia china. Estos
+  son los platos que hay que cazar en cada parada.</p>
+
+  <div class="trio">
+    <figure><img src="img/comida-pho.jpg" alt="Pho" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Phở: el desayuno nacional, mejor antes de las 10:00</figcaption></figure>
+    <figure><img src="img/comida-banh-xeo.jpg" alt="Banh xeo" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Bánh xèo: crepe crujiente de cúrcuma que se come envuelto en hojas</figcaption></figure>
+    <figure><img src="img/comida-ca-phe-sua-da.jpg" alt="Café con leche condensada" onerror="this.classList.add('fallo');this.parentElement.classList.add('sinfoto')"><figcaption>Cà phê sữa đá: café goteado con leche condensada y hielo</figcaption></figure>
+  </div>
+
+  <div class="tabla-wrap">
+    <table class="tab">
+      <thead><tr><th>Dónde</th><th>Lo que no os podéis ir sin probar</th><th>Truco</th></tr></thead>
+      <tbody>
+        <tr><td><b>Hanói</b></td><td>Phở bò · bún chả · chả cá · bánh cuốn · cà phê trứng · bia hơi</td>
+          <td>Desayunar en la calle y cenar temprano. El bia hơi se sirve hasta las 21:00 y luego la calle se apaga.</td></tr>
+        <tr><td><b>Hoi An</b></td><td>Cao lầu · bánh bao bánh vạc · hoành thánh · cơm gà · bánh mì · chè bắp</td>
+          <td>El cao lầu solo se hace aquí. Probad el bánh mì en Phượng y en Madam Khánh y elegid bando.</td></tr>
+        <tr><td><b>Hue</b></td><td>Bún bò Huế · bánh bèo/nậm/lọc · nem lụi · cơm hến · chè · cocina vegetariana</td>
+          <td>Pedid varias raciones pequeñas para compartir: así es como se come aquí de verdad.</td></tr>
+        <tr><td><b>Phong Nha</b></td><td>Gà nướng · cháo cá del río Son · verduras del huerto</td>
+          <td>Se cena en el alojamiento o en cuatro sitios del valle. Reservad si volvéis tarde de las cuevas.</td></tr>
+        <tr><td><b>Ninh Binh</b></td><td>Dê núi (cabra) · cơm cháy · ốc núi · miến lươn</td>
+          <td>Cabra + arroz crujiente es el combo local. Una ración de cada para dos personas va sobrada.</td></tr>
+        <tr><td><b>Lan Ha Bay</b></td><td>Hải sản · chả mực · ngao hấp</td>
+          <td>Las bebidas a bordo no suelen ir incluidas y son caras: mirad el precio antes de pedir.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="comer" style="margin-top:26px">
+    <h3>Cómo pedir sin meter la pata</h3>
+    <div class="platos">
+      <span class="plato">Không cay = sin picante</span><span class="plato">Không rau mùi = sin cilantro</span>
+      <span class="plato">Chay = vegetariano</span><span class="plato">Tính tiền = la cuenta</span>
+      <span class="plato">Ngon quá! = ¡está buenísimo!</span><span class="plato">Cảm ơn = gracias</span>
+    </div>
+    <p><strong>Reglas que funcionan siempre:</strong> comer donde haya vietnamitas y rotación de gente;
+    desconfiar de las cartas con veinte cocinas distintas; los puestos especializados en un solo plato son
+    los mejores; el hielo industrial (con agujero en el centro) es seguro; y llevar siempre billetes pequeños
+    porque en la calle nadie tiene cambio de 500.000 dong.</p>
+  </div>
+</section>
+
+<!-- ============ HOTELES ============ -->
+<section id="hoteles" class="etapa-sec">
+  <div class="kicker">Dónde dormir</div>
+  <h2>Alojamientos: los reservados y las alternativas</h2>
+  <p class="intro">Primero, <strong>lo que ya está cerrado</strong> según el planning. Después, alternativas
+  por si algo se cae o si queréis comparar. Cada hotel enlaza a <strong>Google Maps</strong> (fotos y
+  reseñas) y a <strong>Booking con las fechas de esa etapa ya cargadas</strong> (2 adultos, 1 habitación).
+  Las <strong>estrellas ★ son recomendación propia</strong> para este viaje concreto, no la categoría oficial.</p>
+
+  <div class="leyenda-hoteles">
+    ✓ verde = ya reservado en vuestro planning · ★★★★★ = lo que yo reservaría · los iconos resumen el porqué:
+    <div class="leg-chars"><span class="lc">🏊 piscina</span><span class="lc">🤫 tranquilo</span><span class="lc">📍 céntrico</span><span class="lc">🏖 cerca de la playa</span><span class="lc">🌾 entre arrozales</span><span class="lc">💸 buena relación</span><span class="lc">🧼 muy limpio</span><span class="lc">🌿 con encanto / naturaleza</span><span class="lc">🧖 spa</span><span class="lc">🌅 vistas</span><span class="lc">🍽 buena mesa</span><span class="lc">🚗 traslados incluidos</span><span class="lc">🚲 bicis</span><span class="lc">⛵ barco</span></div>
+  </div>
+
+  <div class="tabla-wrap">
+    <table class="tab hoteles">
+      <thead><tr><th>Hotel</th><th>Zona</th><th>Gama</th><th>€/noche</th><th>Recom.</th><th>Por qué / detalles</th></tr></thead>
+      <tbody>
+      <tr class="grupo"><td colspan="6">①  Hanói · llegada   ·   30 ago → 31 ago</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Le%20Premier%20Hotel%2027%20Hang%20Hanh%20Hanoi" target="_blank" rel="noopener">Le Premier Hotel</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Le%20Premier%20Hotel%20Hanoi&checkin=2026-08-30&checkout=2026-08-31&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 30–31 ago</a></td><td class="zona-cell">27 Hàng Hành, Hoan Kiem</td><td class="gama-cell">Medio €€</td><td class="precio-cell">50–80 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">En un callejón de cafés a 200 m del lago: lo más céntrico posible para un día y medio a tope.<div class="chars"><span class="char">📍</span><span class="char">🧼</span><span class="char">💸</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Hanoi%20La%20Siesta%20Premium%20Hang%20Be" target="_blank" rel="noopener">La Siesta Premium Hang Be</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Hanoi%20La%20Siesta%20Premium%20Hang%20Be&checkin=2026-08-30&checkout=2026-08-31&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 30–31 ago</a></td><td class="zona-cell">Old Quarter</td><td class="gama-cell">Boutique €€€</td><td class="precio-cell">110–150 €</td><td><span class="estrellas">★★★★★</span></td><td class="porque-cell">El boutique mejor valorado del Old Quarter: servicio excepcional, spa y azotea.<div class="chars"><span class="char">📍</span><span class="char">🧖</span><span class="char">🧼</span><span class="char">🌅</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Peridot%20Grand%20Luxury%20Boutique%20Hotel%20Hanoi" target="_blank" rel="noopener">Peridot Grand Luxury Boutique</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Peridot%20Grand%20Luxury%20Boutique%20Hotel%20Hanoi&checkin=2026-08-30&checkout=2026-08-31&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 30–31 ago</a></td><td class="zona-cell">Hoan Kiem</td><td class="gama-cell">Boutique €€</td><td class="precio-cell">80–120 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">Piscina en azotea con vistas, muy buena relación calidad-precio y desayuno notable.<div class="chars"><span class="char">🏊</span><span class="char">📍</span><span class="char">🌅</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">②  Hoi An   ·   31 ago → 3 sep</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Zen%20Retreat%20Hoi%20An" target="_blank" rel="noopener">Zen Retreat Hoi An</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Zen%20Retreat%20Hoi%20An&checkin=2026-08-31&checkout=2026-09-03&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 31 ago–3 sep</a></td><td class="zona-cell">Hoi An</td><td class="gama-cell">Boutique €€</td><td class="precio-cell">60–100 €</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">Tranquilo y con piscina, la base ideal para tres noches de paseo, bici y playa.<div class="chars"><span class="char">🏊</span><span class="char">🤫</span><span class="char">🌿</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Little%20Riverside%20Hoi%20An" target="_blank" rel="noopener">Little Riverside Hoi An</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Little%20Riverside%20Hoi%20An&checkin=2026-08-31&checkout=2026-09-03&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 31 ago–3 sep</a></td><td class="zona-cell">Junto al río</td><td class="gama-cell">Boutique €€€</td><td class="precio-cell">110–160 €</td><td><span class="estrellas">★★★★★</span></td><td class="porque-cell">Piscina infinita sobre el río y a 10 min andando del casco antiguo. Muy bien valorado.<div class="chars"><span class="char">🏊</span><span class="char">🧖</span><span class="char">🌅</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=An%20Bang%20Beach%20Hideaway%20Homestay%20Hoi%20An" target="_blank" rel="noopener">Alojamientos de An Bang Beach</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=An%20Bang%20Beach%20Hoi%20An&checkin=2026-08-31&checkout=2026-09-03&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 31 ago–3 sep</a></td><td class="zona-cell">An Bang</td><td class="gama-cell">Varios €–€€€</td><td class="precio-cell">45–150 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">Opción "playa": se duerme frente al mar y se va al casco antiguo en bici (20 min) o Grab.<div class="chars"><span class="char">🏖</span><span class="char">🤫</span><span class="char">🌿</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">③  Hue   ·   3 sep → 4 sep   ·   POR RESERVAR</td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Melia%20Vinpearl%20Hue" target="_blank" rel="noopener">Meliá Vinpearl Hue</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Melia%20Vinpearl%20Hue&checkin=2026-09-03&checkout=2026-09-04&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 3–4 sep</a></td><td class="zona-cell">Centro, junto al río</td><td class="gama-cell">Medio-alto €€€</td><td class="precio-cell">70–110 €</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">La propuesta del planning: torre céntrica con piscina y vistas al río Perfume. Cómodo para una noche de paso.<div class="chars"><span class="char">🏊</span><span class="char">📍</span><span class="char">🌅</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Azerai%20La%20Residence%20Hue" target="_blank" rel="noopener">Azerai La Residence</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Azerai%20La%20Residence%20Hue&checkin=2026-09-03&checkout=2026-09-04&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 3–4 sep</a></td><td class="zona-cell">Orilla sur del río</td><td class="gama-cell">Lujo €€€€</td><td class="precio-cell">150–220 €</td><td><span class="estrellas">★★★★★</span></td><td class="porque-cell">Mansión art déco de 1930 con jardines y piscina frente a la ciudadela. El capricho de Hue.<div class="chars"><span class="char">🏊</span><span class="char">🌿</span><span class="char">🧖</span><span class="char">🍽</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Alba%20Spa%20Hotel%20Hue" target="_blank" rel="noopener">Alba Spa Hotel</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Alba%20Spa%20Hotel%20Hue&checkin=2026-09-03&checkout=2026-09-04&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 3–4 sep</a></td><td class="zona-cell">Pham Ngu Lao</td><td class="gama-cell">Medio €€</td><td class="precio-cell">40–65 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">Muy buena relación, spa incluido y en la zona de restaurantes. De sobra para una noche.<div class="chars"><span class="char">💸</span><span class="char">🧖</span><span class="char">📍</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">④  Phong Nha   ·   4 sep → 6 sep   ·   POR RESERVAR</td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Karst%20Villas%20Phong%20Nha" target="_blank" rel="noopener">Karst Villas Phong Nha</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Karst%20Villas%20Phong%20Nha&checkin=2026-09-04&checkout=2026-09-06&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 4–6 sep</a></td><td class="zona-cell">Valle de Phong Nha</td><td class="gama-cell">Boutique €€</td><td class="precio-cell">55–90 €</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">La propuesta del planning: villas con piscina mirando a los peñones. Organizan los tours de cuevas.<div class="chars"><span class="char">🏊</span><span class="char">🌅</span><span class="char">🌿</span><span class="char">🚗</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Phong%20Nha%20Farmstay" target="_blank" rel="noopener">Phong Nha Farmstay</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Phong%20Nha%20Farmstay&checkin=2026-09-04&checkout=2026-09-06&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 4–6 sep</a></td><td class="zona-cell">Cù Lạc, entre arrozales</td><td class="gama-cell">Medio €€</td><td class="precio-cell">45–75 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">El pionero de la zona: ambiente de casa rural, buena cocina y toda la información de cuevas.<div class="chars"><span class="char">🌾</span><span class="char">🍽</span><span class="char">🚗</span><span class="char">💸</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Chay%20Lap%20Farmstay%20Phong%20Nha" target="_blank" rel="noopener">Chay Lap Farmstay</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Chay%20Lap%20Farmstay%20Phong%20Nha&checkin=2026-09-04&checkout=2026-09-06&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 4–6 sep</a></td><td class="zona-cell">Chày Lập</td><td class="gama-cell">Medio €€</td><td class="precio-cell">50–85 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">Bungalows entre huertas con piscina, junto al río. Muy tranquilo, algo apartado del pueblo.<div class="chars"><span class="char">🏊</span><span class="char">🤫</span><span class="char">🌿</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">⑤  Tam Coc · Ninh Binh   ·   6 sep → 8 sep</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Nature%20Garden%20Ecolodge%20Tam%20Coc%20Ninh%20Binh" target="_blank" rel="noopener">Nature Garden Ecolodge</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Nature%20Garden%20Ecolodge%20Ninh%20Binh&checkin=2026-09-06&checkout=2026-09-08&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 6–8 sep</a></td><td class="zona-cell">Tam Cốc</td><td class="gama-cell">Ecolodge €€</td><td class="precio-cell">45–75 €</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">Entre arrozales y con bicis para moverse por los caminos rurales, que es justo el plan de esta etapa.<div class="chars"><span class="char">🌾</span><span class="char">🤫</span><span class="char">🌿</span><span class="char">🚲</span></div></td></tr>
+      <tr><td><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Tam%20Coc%20Garden%20Resort%20Ninh%20Binh" target="_blank" rel="noopener">Tam Coc Garden Resort</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Tam%20Coc%20Garden%20Resort&checkin=2026-09-06&checkout=2026-09-08&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 6–8 sep</a></td><td class="zona-cell">Entre montañas</td><td class="gama-cell">Boutique €€€</td><td class="precio-cell">100–150 €</td><td><span class="estrellas">★★★★★</span></td><td class="porque-cell">El más bonito de la zona: casas de piedra con jardín, piscina y silencio absoluto.<div class="chars"><span class="char">🏊</span><span class="char">🤫</span><span class="char">🌿</span><span class="char">🍽</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">⑥  Hanói · noche puente   ·   8 sep → 9 sep</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Eliana%20Robusta%20Hotel%20Hanoi" target="_blank" rel="noopener">Eliana Robusta Hotel</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Eliana%20Robusta%20Hotel%20Hanoi&checkin=2026-09-08&checkout=2026-09-09&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 8–9 sep</a></td><td class="zona-cell">Old Quarter</td><td class="gama-cell">Medio €€</td><td class="precio-cell">45–75 €</td><td><span class="estrellas">★★★★<span class="vacia">☆</span></span></td><td class="porque-cell">Céntrico y práctico para una noche de paso: al día siguiente os recogen aquí para el crucero.<div class="chars"><span class="char">📍</span><span class="char">🧼</span><span class="char">💸</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">⑦  Crucero Lan Ha Bay   ·   9 sep → 10 sep</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Lan%20Ha%20Bay%20cruise%20port%20Got%20Cat%20Ba" target="_blank" rel="noopener">Bat Group Trading Transport and Tourism Co.</a></td><td class="zona-cell">Lan Ha Bay</td><td class="gama-cell">Crucero</td><td class="precio-cell">120–200 €/pax</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">Una noche a bordo con pensión completa, kayak y traslados desde Hanói incluidos. Confirmad hora de recogida la víspera.<div class="chars"><span class="char">⛵</span><span class="char">🍽</span><span class="char">🚗</span><span class="char">🌅</span></div></td></tr>
+      <tr class="grupo"><td colspan="6">⑧  Hanói · final   ·   10 sep → 12 sep</td></tr>
+      <tr><td><span class="reservado">✓ reservado</span><br><a class="hotel" href="https://www.google.com/maps/search/?api=1&query=Heritage%20Ham%20Long%20Hotel%20and%20Spa%20Hanoi" target="_blank" rel="noopener">Heritage Ham Long Hotel &amp; Spa</a><br><a class="booking" href="https://www.booking.com/searchresults.html?ss=Heritage%20Ham%20Long%20Hotel%20and%20Spa%20Hanoi&checkin=2026-09-10&checkout=2026-09-12&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">🏨 Booking · 10–12 sep</a></td><td class="zona-cell">Hàm Long, French Quarter</td><td class="gama-cell">Medio €€</td><td class="precio-cell">55–85 €</td><td><span class="estrellas">★★★★½</span></td><td class="porque-cell">En el barrio francés, más tranquilo que el Old Quarter y a 10 min andando del lago. Con spa para el último masaje.<div class="chars"><span class="char">🧖</span><span class="char">🤫</span><span class="char">📍</span><span class="char">🧼</span></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="presu-nota">🏨 El botón de <strong>Booking</strong> abre la búsqueda de ese hotel con las fechas
+  de la etapa ya puestas para dos personas. El nombre abre Google Maps. Precios orientativos para 2026.</p>
+
+  <div class="barrios-grid">
+    <div class="bcard"><h4>Hanói</h4><div class="barrio">Hoan Kiem / Old Quarter</div>
+      <p>Donde hay que dormir: todo a pie, comida en cada esquina y ambiente hasta la noche. Es ruidoso —pedid
+      habitación interior—. El <strong>French Quarter</strong> (donde está el hotel del final) es la versión
+      tranquila y elegante, a diez minutos andando. <strong>Tay Ho</strong>, junto al lago oeste, es
+      residencial y bonito pero queda lejos para tan pocos días.</p></div>
+    <div class="bcard"><h4>Hoi An</h4><div class="barrio">Casco antiguo · An Bang · Cam Thanh</div>
+      <p>Dentro o al borde del <strong>casco antiguo</strong> es lo más cómodo para las noches de farolillos.
+      <strong>An Bang</strong> es la opción playa (20 min en bici). <strong>Cam Thanh</strong> y los alrededores
+      son campo y palmeras, muy tranquilos, pero dependes de bici o Grab para todo.</p></div>
+    <div class="bcard"><h4>Hue</h4><div class="barrio">Orilla sur (Pham Ngu Lao)</div>
+      <p>Con una sola noche, dormid en la <strong>orilla sur</strong>: es donde están los restaurantes y los
+      hoteles, y la ciudadela queda cruzando el puente. Evitad alojaros lejos del río: la ciudad se dispersa
+      y se pierde tiempo.</p></div>
+    <div class="bcard"><h4>Phong Nha y Ninh Binh</h4><div class="barrio">Campo, siempre campo</div>
+      <p>En <strong>Phong Nha</strong> merece la pena dormir en el valle o en el pueblo (Son Trach), nunca en
+      Dong Hoi. En <strong>Ninh Binh</strong>, mejor <strong>Tam Coc</strong> o los caminos entre arrozales
+      que la ciudad de Ninh Binh, que es fea y no tiene nada.</p></div>
+  </div>
+</section>
+
+<!-- ============ MOVERSE ============ -->
+<section id="moverse" class="etapa-sec">
+  <div class="kicker">Logística</div>
+  <h2>Cómo moverse por Vietnam</h2>
+  <p class="intro">Regla general del viaje: <strong>en ciudad, Grab; entre ciudades, coche privado o tren;
+  en el campo, bicicleta</strong>. La moto queda descartada salvo experiencia previa: el tráfico vietnamita
+  tiene sus propias reglas y septiembre es mes de lluvias.</p>
+
+  <div class="tabla-wrap">
+    <table class="tab">
+      <thead><tr><th>Trayecto</th><th>Recomendado</th><th>Tiempo / precio orientativo</th><th>Notas</th></tr></thead>
+      <tbody>
+        <tr><td><b>Aeropuerto Noi Bai → Hanói</b></td><td>Grab o taxi con precio cerrado</td><td>45 min · 12–18 €</td><td>Los hoteles ofrecen traslado por algo más. Evitad los taxis que os aborden en la terminal.</td></tr>
+        <tr><td><b>Por Hanói</b></td><td>Grab (coche o moto) y <b>Xanh SM</b> (taxis eléctricos)</td><td>1–4 € por trayecto</td><td>Precio cerrado en la app, sin regateo. Grab Bike es rapidísimo pero solo si os atrevéis.</td></tr>
+        <tr><td><b>Da Nang → Hoi An</b></td><td>Coche privado o Grab</td><td>45 min · 15–22 €</td><td>Con el vuelo llegando a las 20:35, mejor dejarlo contratado con el hotel.</td></tr>
+        <tr><td><b>Por Hoi An</b></td><td>A pie y bicicleta</td><td>Bici gratis en casi todos los hoteles</td><td>El casco antiguo es peatonal en las horas centrales y por la noche.</td></tr>
+        <tr><td><b>Hoi An → Hue</b></td><td><b>Coche privado</b> con paradas</td><td>4–5 h con paradas · 70–110 €</td><td>La mejor decisión del viaje: Marble Mountains, Hai Van y Lang Co por el camino. Pactad las paradas antes.</td></tr>
+        <tr><td><b>Hue → Phong Nha</b></td><td>Coche privado o tren a Dong Hoi + coche</td><td>4 h coche (80–120 €) · 3 h tren (6–10 €/pax)</td><td>El tren es cómodo y con paisaje, pero luego hay 45 min de Dong Hoi a Phong Nha.</td></tr>
+        <tr><td><b>Cuevas de Phong Nha</b></td><td>Tour organizado o conductor de día completo</td><td>Día completo · 25–45 €/pax</td><td>Con recogida en el alojamiento. Moto solo con experiencia y buen tiempo.</td></tr>
+        <tr><td><b>Phong Nha → Ninh Binh</b></td><td>Tren desde Dong Hoi (o vuelo + coche)</td><td>6–8 h tren · 15–30 €/pax</td><td>El día logístico del viaje. Reservad billetes con antelación en temporada alta.</td></tr>
+        <tr><td><b>Por Ninh Binh</b></td><td><b>Bicicleta</b> para casi todo</td><td>Incluida en el alojamiento</td><td>Grab/taxi solo para Hang Mua al amanecer o si llueve. Aquí el desplazamiento es parte del plan.</td></tr>
+        <tr><td><b>Ninh Binh → Hanói</b></td><td>Coche privado o limousine van</td><td>1 h 45 · 45–70 € coche · 8–12 €/pax van</td><td>Las "limousine van" son furgonetas de 9 plazas con asientos amplios; se reservan por WhatsApp o en el hotel.</td></tr>
+        <tr><td><b>Hanói → Lan Ha Bay</b></td><td>Incluido en el crucero</td><td>2 h 30 por autopista</td><td>Recogida en el hotel. Confirmad la hora la noche anterior.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="practico sans">
+    <div class="pcard"><h4>📱 Las apps imprescindibles</h4><ul>
+      <li><b>Grab</b> — coches, motos y hasta comida a domicilio. Funciona en todas las ciudades del viaje.</li>
+      <li><b>Xanh SM</b> — taxis eléctricos vietnamitas, a veces más baratos que Grab y siempre limpios.</li>
+      <li><b>Google Maps offline</b> — descargad el mapa de Vietnam antes de salir.</li>
+      <li><b>Google Translate</b> con vietnamita descargado: la cámara traduce las cartas de los puestos.</li>
+      <li><b>Baemin / ShopeeFood</b> — comida a domicilio si un día llueve a mares.</li>
+    </ul></div>
+    <div class="pcard"><h4>🛵 Cruzar la calle (en serio)</h4><ul>
+      <li>Se cruza <b>andando despacio y sin parar</b>: las motos calculan tu trayectoria y te esquivan.</li>
+      <li>Lo peligroso es correr o dar un paso atrás: eso rompe la previsión y provoca el frenazo.</li>
+      <li>Levantar una mano hacia el tráfico ayuda a que te vean.</li>
+      <li>En Hanói, poneos detrás de una señora local la primera vez y copiadla.</li>
+    </ul></div>
+    <div class="pcard"><h4>🚆 El tren Reunificación</h4><ul>
+      <li>Une Hanói y Saigón por la costa; vosotros podéis usar el tramo <b>Hue → Dong Hoi</b> o <b>Dong Hoi → Ninh Binh</b>.</li>
+      <li>Clases: soft seat, y cabinas de 4 literas (soft sleeper), que es lo que conviene para trayectos largos.</li>
+      <li>Se compra en la web oficial <b>dsvn.vn</b>, en agencias o por apps tipo 12Go / Baolau.</li>
+      <li>Llevad comida y agua: la del tren es básica.</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ============ PRESUPUESTO ============ -->
+<section id="presupuesto" class="etapa-sec">
+  <div class="kicker">Cuánto cuesta</div>
+  <h2>Presupuesto orientativo</h2>
+  <p class="intro">Estimación <strong>para dos personas y el viaje completo</strong> (14 días, 13 noches),
+  en un nivel cómodo: hoteles boutique-medios como los del planning, comer sobre todo en la calle y en
+  restaurantes locales, coches privados para los traslados largos y el crucero incluido. Vietnam es barato
+  sobre el terreno: lo que dispara el total es el vuelo internacional.</p>
+
+  <div class="presu-grid">
+    <div class="pline"><div class="cat"><span class="ic">✈️</span>Vuelos Madrid–Hanói</div>
+      <div class="imp">1.200–1.700 €</div><div class="nota">Ida y vuelta, los dos. Ya reservados en vuestro caso.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🛫</span>Vuelo interno Hanói–Da Nang</div>
+      <div class="imp">70–130 €</div><div class="nota">Los dos, con equipaje facturado.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🏨</span>Alojamiento · 12 noches en tierra</div>
+      <div class="imp">700–1.200 €</div><div class="nota">Media de 55–100 €/noche en pareja.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">⛵</span>Crucero Lan Ha Bay</div>
+      <div class="imp">250–400 €</div><div class="nota">Los dos, una noche con pensión completa y traslados.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🍜</span>Comida y bebida</div>
+      <div class="imp">400–700 €</div><div class="nota">Los dos, 14 días. Un plato en la calle: 1,5–3 €; un restaurante bueno: 15–25 € para dos.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🚗</span>Traslados por carretera y tren</div>
+      <div class="imp">300–480 €</div><div class="nota">Hai Van, Hue–Phong Nha, tren a Ninh Binh y Ninh Binh–Hanói.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🎟️</span>Entradas y actividades</div>
+      <div class="imp">180–300 €</div><div class="nota">Cuevas, Trang An, Hang Mua, Ciudad Imperial, tumbas, ticket de Hoi An, clase de cocina.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🛡️</span>Seguro de viaje</div>
+      <div class="imp">90–150 €</div><div class="nota">Los dos, con buena cobertura médica. Imprescindible.</div></div>
+    <div class="pline"><div class="cat"><span class="ic">🛍️</span>eSIM, masajes, compras y varios</div>
+      <div class="imp">200–350 €</div><div class="nota">Datos, propinas, ropa a medida en Hoi An, café y regalos.</div></div>
+  </div>
+
+  <div class="totales">
+    <div class="total t1"><div class="lbl">Ajustado</div><div class="val">≈ 3.400 €</div><div class="pp">≈ 1.700 € por persona</div></div>
+    <div class="total t2"><div class="lbl">Cómodo (este itinerario)</div><div class="val">≈ 4.300 €</div><div class="pp">≈ 2.150 € por persona</div></div>
+    <div class="total t3"><div class="lbl">Con caprichos</div><div class="val">≈ 5.400 €</div><div class="pp">≈ 2.700 € por persona</div></div>
+  </div>
+  <p class="presu-nota">Incluye los vuelos internacionales. Sin ellos, el viaje sobre el terreno sale por
+  unos 2.200–3.700 € para los dos. Lo que más se puede ajustar: hoteles y traslados privados (el tren y las
+  vans compartidas cuestan una fracción).</p>
+</section>
+
+<!-- ============ PRÁCTICO ============ -->
+<section id="practico" class="etapa-sec">
+  <div class="kicker">Antes de salir y allí</div>
+  <h2>Guía práctica</h2>
+  <div class="practico sans">
+    <div class="pcard"><h4>🛂 Visado y papeles</h4><ul>
+      <li>España tiene <b>exención de visado para estancias cortas</b> (45 días) y, como alternativa, existe el
+      <b>e-visa</b> de hasta 90 días que se tramita online en unos días hábiles.</li>
+      <li><b>Comprobad la norma vigente</b> en la web oficial de inmigración un par de meses antes: Vietnam la
+      ha cambiado varias veces en los últimos años.</li>
+      <li>Pasaporte con <b>6 meses de validez</b> desde la entrada y páginas libres.</li>
+      <li>Llevad impreso el billete de salida del país: a veces lo piden al facturar.</li>
+      <li>Copia digital de pasaporte, seguro y reservas en el móvil y en la nube.</li>
+    </ul></div>
+    <div class="pcard"><h4>🌦️ El tiempo a finales de agosto y en septiembre</h4><ul>
+      <li><b>Hanói y Ninh Binh:</b> 28–34 °C, mucha humedad y tormentas cortas de tarde. Calor pegajoso.</li>
+      <li><b>Hoi An y Hue:</b> 30–34 °C, sol y algún chaparrón. La temporada de lluvias fuertes del centro empieza a finales de septiembre.</li>
+      <li><b>Phong Nha:</b> caluroso y húmedo; las cuevas están frescas por dentro.</li>
+      <li><b>Golfo de Tonkín (Lan Ha):</b> es temporada de <b>tifones</b>. Lo normal es que no pase nada, pero si hay aviso, la bahía se cierra y los cruceros cancelan.</li>
+      <li>Conclusión: paraguas plegable, chubasquero fino, ropa que seque rápido y ninguna reserva rígida el último día antes del vuelo.</li>
+    </ul></div>
+    <div class="pcard"><h4>💸 Dinero</h4><ul>
+      <li>Moneda: <b>dong (VND)</b>. Aproximadamente <b>1 € ≈ 28.000 VND</b>; quitad tres ceros y dividid entre 28 para hacer el cálculo mental.</li>
+      <li>Cuidado con los billetes de 20.000 y 500.000: se parecen. Contad siempre los ceros.</li>
+      <li>El <b>efectivo manda</b> en la calle y en los mercados; tarjeta solo en hoteles y restaurantes grandes.</li>
+      <li>Cajeros sin comisión propia o baja: <b>TPBank</b> y <b>VPBank</b>. Los de aeropuerto cobran más.</li>
+      <li>Tarjetas <b>Revolut o Wise</b> para el mejor cambio. Sacad cantidades grandes pocas veces.</li>
+      <li>Propina: no es obligatoria, pero se agradece en guías, conductores y en el crucero (2–5 € por persona y día).</li>
+    </ul></div>
+    <div class="pcard"><h4>📶 Conectividad y enchufes</h4><ul>
+      <li><b>eSIM</b> de Viettel o Vinaphone comprada antes de salir: datos desde que aterrizáis y Grab funcionando en el aeropuerto.</li>
+      <li>Cobertura excelente en todo el itinerario salvo dentro de las cuevas y a ratos en la bahía.</li>
+      <li>Enchufes de <b>220 V</b>, clavijas tipo A y C: el enchufe europeo entra sin adaptador en casi todos los sitios.</li>
+      <li>Powerbank en el equipaje de mano (nunca facturado) para los días largos de excursión.</li>
+    </ul></div>
+    <div class="pcard"><h4>💊 Salud y equipaje</h4><ul>
+      <li>Agua siempre embotellada; el hielo de bola con agujero es industrial y seguro.</li>
+      <li><b>Repelente de mosquitos</b>: en el norte y en Ninh Binh hay dengue. Manga larga al atardecer.</li>
+      <li>Botiquín: antidiarreico, suero oral, ibuprofeno, tiritas y crema solar alta.</li>
+      <li>Zapatillas cómodas y con agarre para Hang Mua y las cuevas (los escalones resbalan si llueve).</li>
+      <li>Ropa ligera y de secado rápido, chanclas, bañador y algo con hombros cubiertos para templos y mausoleo.</li>
+      <li>Lavanderías por todas partes: 1–2 € el kilo, listo en el día. No hace falta llevar mucha ropa.</li>
+    </ul></div>
+    <div class="pcard"><h4>🙏 Costumbres y sentido común</h4><ul>
+      <li>En templos y pagodas: <b>hombros y rodillas cubiertos</b>, y descalzarse donde lo indiquen.</li>
+      <li>En el <b>Mausoleo de Ho Chi Minh</b>: solo por la mañana, cerrado lunes y viernes, sin fotos, sin
+      pantalón corto, sin manos en los bolsillos. Suele cerrar semanas por mantenimiento, así que comprobadlo el día antes.</li>
+      <li>Dar y recibir cosas con las dos manos o con la derecha; no tocar la cabeza a nadie.</li>
+      <li>Regatear con sonrisa en mercados y en las barcas; nunca en un puesto de comida.</li>
+      <li>En <b>Train Street</b>, hacedle caso a la policía si está cerrada: hay multas y accidentes reales.</li>
+      <li>Estafas típicas: taxi sin taxímetro, "el museo está cerrado, te llevo a otro sitio" y el cambio de billetes al pagar. Con Grab y precio cerrado se evitan casi todas.</li>
+    </ul></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Vietnam · salida de Madrid el 29 de agosto · en el país del 30 de agosto al 12 de septiembre de 2026 · hecho en casa, con calma.<br>
+  <span class="sans" style="font-size:.75rem">Fotos: Wikimedia Commons (dominio público / CC). Dato curioso:
+  el 2 de septiembre, que lo pasáis en Hoi An, es la Fiesta Nacional de Vietnam — banderas, familias de viaje y ambiente por todas partes.</span>
+</footer>
+
+<script>
+  function toggleMenuInfo(e){
+    e.stopPropagation();
+    var p=document.getElementById('menuInfo'), b=document.getElementById('menuBtn');
+    var abierto=p.classList.toggle('abierto');
+    b.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  }
+  function cerrarMenuInfo(){
+    var p=document.getElementById('menuInfo'), b=document.getElementById('menuBtn');
+    p.classList.remove('abierto');
+    b.setAttribute('aria-expanded','false');
+  }
+  document.addEventListener('click', function(e){
+    var p=document.getElementById('menuInfo'), b=document.getElementById('menuBtn');
+    if(p.classList.contains('abierto') && !p.contains(e.target) && !b.contains(e.target)) cerrarMenuInfo();
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') cerrarMenuInfo(); });
+</script>
+
+</body>
+</html>
